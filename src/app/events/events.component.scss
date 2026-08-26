@@ -1,0 +1,11 @@
+.upcoming {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.upcoming p {
+  max-width: 640px;
+}

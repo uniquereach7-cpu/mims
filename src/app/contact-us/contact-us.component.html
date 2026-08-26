@@ -1,0 +1,99 @@
+<app-page-hero title="Contact Us" image="assets/images/banner-contact.jpg" />
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <h1 class="rule-under">Get in Touch</h1>
+      <p>
+        Whether you are looking to book an appointment, connect with a specialist, seek medical
+        guidance, or simply learn more about our services, our team is always ready to assist you.
+      </p>
+    </div>
+
+    <div class="grid grid--3 contact-cards">
+      @for (card of cards; track card.title) {
+        <article class="contact-card">
+          <span class="contact-card__icon"><app-icon [name]="card.icon" [size]="26" /></span>
+          <h3>{{ card.title }}</h3>
+          @if (card.href) {
+            <a [href]="card.href">{{ card.value }}</a>
+          } @else {
+            <p>{{ card.value }}</p>
+          }
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface">
+  <div class="container enquiry">
+    <div class="panel panel--green enquiry__form">
+      @if (sent()) {
+        <h2>Thanks, {{ form.controls.name.value }}.</h2>
+        <p>
+          We have opened an email addressed to <strong>{{ site.email }}</strong> with your message.
+          Send it and our team will get back to you as soon as possible.
+        </p>
+        <p class="enquiry__fallback">
+          If your mail client did not open, call us on
+          <a [href]="site.phoneHref">{{ site.phone }}</a> instead.
+        </p>
+      } @else {
+        <h2>Still Have Questions?</h2>
+        <p>Fill out the form below and our team will get back to you shortly.</p>
+
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <label class="field" [class.field--error]="invalid('name')">
+            <span>Name</span>
+            <input type="text" formControlName="name" autocomplete="name" />
+            @if (invalid('name')) {
+              <small class="field__error">Please enter your name.</small>
+            }
+          </label>
+
+          <label class="field" [class.field--error]="invalid('email')">
+            <span>Email</span>
+            <input type="email" formControlName="email" autocomplete="email" />
+            @if (invalid('email')) {
+              <small class="field__error">Please enter a valid email address.</small>
+            }
+          </label>
+
+          <label class="field" [class.field--error]="invalid('message')">
+            <span>Message</span>
+            <textarea formControlName="message" placeholder="Type your message…"></textarea>
+            @if (invalid('message')) {
+              <small class="field__error">Please tell us a little more (at least 10 characters).</small>
+            }
+          </label>
+
+          <button type="submit" class="btn btn--blue btn--plain">Submit</button>
+        </form>
+      }
+    </div>
+
+    <div class="enquiry__aside">
+      <a class="enquiry__map" [href]="site.mapUrl" target="_blank" rel="noopener">
+        <img src="assets/images/map.jpg" alt="Map showing MIMS Hospital in Nellimarla, Vizianagaram" />
+        <span>Open in Google Maps</span>
+      </a>
+
+      <div class="visit">
+        <h3>Visit Us</h3>
+        <p class="visit__name">{{ site.legalName }} ({{ site.name }})</p>
+        <address>
+          @for (line of site.addressLines; track line) {
+            {{ line }}<br />
+          }
+        </address>
+        <dl class="visit__hours">
+          <dt>General OPD</dt>
+          <dd>{{ site.opdHours }}</dd>
+          <dt>Emergency Services</dt>
+          <dd>{{ site.emergencyHours }}</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

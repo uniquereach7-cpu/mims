@@ -1,0 +1,87 @@
+.scheme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.scheme-grid li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+}
+
+.scheme-grid__icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--green-050);
+  color: var(--blue);
+}
+
+.helpdesk {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 40px;
+}
+
+.helpdesk h2 {
+  margin-bottom: 12px;
+}
+
+.helpdesk__list {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.helpdesk__list li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.helpdesk__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 13px;
+  height: 7px;
+  border-left: 2px solid var(--green);
+  border-bottom: 2px solid var(--green);
+  transform: rotate(-45deg);
+}
+
+.helpdesk__contact {
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+}
+
+.helpdesk__contact h3 {
+  margin-bottom: 14px;
+}
+
+.helpdesk__contact a:hover {
+  text-decoration: underline;
+}
+
+.helpdesk__hours {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 800px) {
+  .scheme-grid,
+  .helpdesk {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,57 @@
+<app-page-hero
+  title="Health Blogs & Insights"
+  tagline="Informative blogs from healthcare experts."
+  image="assets/images/blog-healthy-lifestyle.jpg"
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">Overview</span>
+      <h1>Expert Health and Wellness Articles for <span class="heading-accent">Better Healthcare Decisions</span></h1>
+      <p class="lead">
+        Explore doctor-approved health information and preventive healthcare tips from MIMS Hospital
+        specialists. Our blogs provide reliable insights on diseases, treatments, nutrition, and
+        wellness to help you make informed healthcare decisions.
+      </p>
+    </div>
+
+    <div class="chips">
+      <button type="button" class="chip" [class.is-active]="active() === 'All'" (click)="select('All')">All</button>
+      @for (category of categories; track category) {
+        <button
+          type="button"
+          class="chip"
+          [class.is-active]="active() === category"
+          (click)="select(category)"
+        >{{ category }}</button>
+      }
+    </div>
+
+    @if (!posts().length) {
+      <p class="empty">No articles published in this category yet — check back soon.</p>
+    } @else {
+      <div class="grid grid--3 posts">
+        @for (post of posts(); track post.slug) {
+          <article class="card blog-card">
+            <img [src]="post.image" [alt]="post.title" />
+            <div class="card__body">
+              <span class="blog-card__cat">{{ post.category }}</span>
+              <h3>{{ post.title }}</h3>
+              <p>{{ post.excerpt }}</p>
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<app-cta-band
+  heading="Stay updated with expert health advice"
+  text="Have a health question you would like our specialists to answer? Get in touch."
+  primaryLabel="Contact Us"
+  primaryLink="/contact-us"
+  secondaryLabel="Book Appointment"
+  secondaryLink="/book-appointment"
+/>

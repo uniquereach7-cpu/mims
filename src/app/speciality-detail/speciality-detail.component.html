@@ -1,0 +1,302 @@
+@if (speciality(); as spec) {
+  <section class="dept-hero">
+    <div class="container dept-hero__inner">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a routerLink="/specialities">Specialities</a>
+        <span aria-hidden="true">/</span>
+        <span>{{ spec.name }}</span>
+      </nav>
+
+      <span class="dept-hero__icon"><app-icon [name]="spec.icon" [size]="32" /></span>
+      <h1>{{ spec.name }}</h1>
+      @if (detail(); as d) {
+        <p class="dept-hero__banner">{{ d.banner }}</p>
+      } @else {
+        <p class="dept-hero__banner">{{ spec.blurb }}</p>
+      }
+      <a class="btn btn--green btn--plain" routerLink="/book-appointment">Book an Appointment</a>
+    </div>
+  </section>
+
+  @if (detail()?.subline; as subline) {
+    <p class="dept-subline">{{ subline }}</p>
+  }
+
+  <!-- ---------------------------------------------------------- overview -->
+  <section class="section">
+    <div class="container split split--wide-left">
+      <div>
+        <span class="eyebrow eyebrow--plain">Overview</span>
+        <h2>{{ detail()?.overview?.heading || spec.name + ' at MIMS Hospital' }}</h2>
+        <div class="prose">
+          @if (detail(); as d) {
+            @for (para of d.overview.paras; track para) {
+              <p>{{ para }}</p>
+            }
+          } @else {
+            <p>{{ spec.summary }}</p>
+            <p>
+              Our specialists work alongside advanced diagnostics, modern operation theatres, and a
+              multi-disciplinary team so that patients receive coordinated care from the first
+              consultation through to follow-up.
+            </p>
+          }
+        </div>
+        <a class="btn btn--blue" routerLink="/book-appointment">
+          Consult a Specialist
+          <span class="btn__arrow" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+          </span>
+        </a>
+      </div>
+      <img [src]="spec.image" [alt]="spec.name + ' care at MIMS Hospital'" />
+    </div>
+  </section>
+
+  @if (detail(); as d) {
+    <!-- ------------------------------------------------------- services -->
+    <section class="section section--surface">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{ d.services.heading }}</h2>
+          @for (para of d.services.intro; track para) {
+            <p>{{ para }}</p>
+          }
+        </div>
+
+        <div class="grid grid--3">
+          @for (item of d.services.items; track item.title) {
+            <article class="info-card">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.desc }}</p>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------- symptoms -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{ d.symptoms.heading }}</h2>
+          @for (para of d.symptoms.intro; track para) {
+            <p>{{ para }}</p>
+          }
+        </div>
+
+        <ul class="symptom-list">
+          @for (item of d.symptoms.items; track item.title) {
+            <li>
+              <h4>{{ item.title }}</h4>
+              @if (item.desc) {
+                <p>{{ item.desc }}</p>
+              }
+            </li>
+          }
+        </ul>
+
+        @if (d.symptoms.important) {
+          <div class="note">
+            <span aria-hidden="true">!</span>
+            <p><strong>Important:</strong> {{ d.symptoms.important }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------ conditions -->
+    <section class="section section--surface">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{ d.conditions.heading }}</h2>
+          @for (para of d.conditions.intro; track para) {
+            <p>{{ para }}</p>
+          }
+        </div>
+
+        <div class="grid grid--3">
+          @for (group of d.conditions.groups; track group.title) {
+            <article class="info-card condition-group">
+              @if (group.title) {
+                <h3>{{ group.title }}</h3>
+              }
+              <ul class="tick-list">
+                @for (item of group.items; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------- treatments + diagnostics -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{ d.treatments.heading }}</h2>
+          @for (para of d.treatments.intro; track para) {
+            <p>{{ para }}</p>
+          }
+        </div>
+
+        <div class="grid grid--2">
+          @for (item of d.treatments.items; track item.title) {
+            <article class="stack-item">
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.desc }}</p>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface">
+      <div class="container split split--wide-left">
+        <div>
+          <h2>{{ d.diagnostics.heading }}</h2>
+          @for (para of d.diagnostics.intro; track para) {
+            <p class="lead">{{ para }}</p>
+          }
+          <ul class="tick-list diagnostics-list">
+            @for (item of d.diagnostics.items; track item.title) {
+              <li><strong>{{ item.title }}</strong>@if (item.desc) { — {{ item.desc }} }</li>
+            }
+          </ul>
+        </div>
+        <img src="assets/images/diagnostics.jpg" alt="Diagnostic services at MIMS Hospital" />
+      </div>
+    </section>
+  }
+
+  <!-- ---------------------------------------------------------- doctors -->
+  @if (doctors().length) {
+    <section class="section">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2>{{ detail()?.doctors?.heading || 'Meet Our ' + spec.name + ' Specialists' }}</h2>
+          @if (detail(); as d) {
+            @for (para of d.doctors.intro; track para) {
+              <p>{{ para }}</p>
+            }
+          }
+        </div>
+
+        <div class="grid grid--4">
+          @for (doctor of doctors(); track doctor.slug) {
+            <article class="doctor-card">
+              <img src="assets/images/doctor-placeholder.png" [alt]="doctor.name" />
+              <div class="doctor-card__body">
+                <h3>{{ doctor.name }}</h3>
+                <p>{{ doctor.department }}</p>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  @if (detail(); as d) {
+    <!-- -------------------------------------------------------- why choose -->
+    <section class="section section--surface">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{ d.why.heading }}</h2>
+        </div>
+        <div class="grid grid--3">
+          @for (item of d.why.items; track item.title) {
+            <article class="info-card">
+              <span class="info-card__icon"><app-icon name="shield" [size]="20" /></span>
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.desc }}</p>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------- FAQs -->
+    @if (d.faqs.length) {
+      <section class="section">
+        <div class="container faq-wrap">
+          <div class="section-head">
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div class="accordion">
+            @for (faq of d.faqs; track faq.q; let i = $index) {
+              <div class="accordion__item" [class.is-open]="openFaq() === i">
+                <button
+                  type="button"
+                  class="accordion__trigger"
+                  [attr.aria-expanded]="openFaq() === i"
+                  (click)="toggleFaq(i)"
+                >
+                  {{ faq.q }}
+                  <span class="accordion__sign" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                  </span>
+                </button>
+                @if (openFaq() === i) {
+                  <div class="accordion__panel">
+                    <p>{{ faq.a }}</p>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </section>
+    }
+  }
+
+  <!-- ------------------------------------------------- other specialities -->
+  <section class="section section--surface">
+    <div class="container">
+      <div class="section-head">
+        <h2>Explore Other Specialities for <span class="heading-accent">Comprehensive Care</span></h2>
+        <p>
+          Some conditions require expertise from more than one medical discipline. At MIMS Hospital,
+          our teams coordinate care across departments whenever additional evaluation or treatment
+          is required.
+        </p>
+      </div>
+
+      <div class="other-specs">
+        <div>
+          <h3>General Specialities</h3>
+          <ul class="pill-list">
+            @for (item of general; track item.slug) {
+              @if (item.slug !== spec.slug) {
+                <li><a [routerLink]="['/specialities', item.slug]">{{ item.name }}</a></li>
+              }
+            }
+          </ul>
+        </div>
+        <div>
+          <h3>Super Specialities</h3>
+          <ul class="pill-list">
+            @for (item of supers; track item.slug) {
+              @if (item.slug !== spec.slug) {
+                <li><a [routerLink]="['/specialities', item.slug]">{{ item.name }}</a></li>
+              }
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-cta-band
+    [heading]="'Book a ' + spec.name + ' consultation'"
+    text="Our team will help you find the right specialist and a convenient appointment slot."
+    primaryLabel="Book Appointment"
+    primaryLink="/book-appointment"
+    secondaryLabel="Call the Hospital"
+    secondaryLink="/contact-us"
+  />
+}

@@ -1,0 +1,65 @@
+.glance {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  padding: clamp(28px, 3vw, 44px);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.glance h3 {
+  margin-bottom: 18px;
+  color: var(--blue);
+}
+
+.glance .pill-list li a:hover {
+  color: var(--green);
+}
+
+.spec {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 20px;
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.spec:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.spec__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--green-050);
+  color: var(--blue);
+}
+
+.spec h3 {
+  margin-bottom: 8px;
+}
+
+.spec p {
+  font-size: 0.97rem;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 800px) {
+  .glance {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .spec {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

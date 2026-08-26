@@ -1,59 +1,84 @@
-# Mims
+# MIMS Hospital
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+Website for Maharajah's Institute of Medical Sciences (MIMS Hospital), Nellimarla, Vizianagaram.
+Angular 19 (standalone components, SSR + prerendering).
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Running
 
 ```bash
-ng generate component component-name
+npm start          # dev server on http://localhost:4200
+npm run build      # production build into dist/mims
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Project layout
 
-```bash
-ng generate --help
+One folder per page, directly under `src/app/`:
+
+```
+src/
+├── assets/
+│   ├── design/                 reference design PDFs (not served)
+│   ├── content/                source copy documents (gitignored, not served)
+│   ├── All Specialities/       source speciality + doctor documents (not served)
+│   └── images/                 images used by the site (served as /assets/images)
+└── app/
+    ├── core/
+    │   ├── data/               site details, doctors, specialities, page copy
+    │   ├── layout/             header + footer
+    │   └── models/             shared interfaces
+    ├── shared/                 page-hero, cta-band, icon
+    ├── home/  about-us/  specialities/  speciality-detail/  doctors/
+    ├── health-checkup/  physiotherapy/  government-schemes/
+    ├── blogs/  events/  careers/  contact-us/  book-appointment/
+    ├── app.routes.ts           every page is registered here
+    └── app.config.ts
 ```
 
-## Building
+## Adding a page
 
-To build the project run:
+1. Create the folder and component:
 
-```bash
-ng build
-```
+   ```bash
+   npx ng generate component my-page --standalone --flat=false
+   ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2. Register it in [`src/app/app.routes.ts`](src/app/app.routes.ts):
 
-## Running unit tests
+   ```ts
+   {
+     path: 'my-page',
+     loadComponent: () => import('./my-page/my-page.component').then((m) => m.MyPageComponent),
+     title: 'My Page | MIMS Hospital'
+   },
+   ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+3. If it should appear in the menu, add it to `MAIN_NAV` (or `FOOTER_LINKS`) in
+   [`src/app/core/data/site.ts`](src/app/core/data/site.ts).
 
-```bash
-ng test
-```
+## Design system
 
-## Running end-to-end tests
+Brand tokens, buttons, cards, section headings, form fields and the shared page blocks all live in
+[`src/styles.scss`](src/styles.scss) as CSS custom properties and utility classes, so page-level SCSS
+stays small. Colours and spacing are taken from the approved design in `src/assets/design/`.
 
-For end-to-end (e2e) testing, run:
+## Content
 
-```bash
-ng e2e
-```
+Page copy, the speciality departments and the doctor roster are data, not markup:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- `core/data/site.ts` — address, phone, email, navigation, hospital statistics
+- `core/data/specialities.ts` — the 20 departments (name, group, summary, icon, image)
+- `core/data/speciality-details.ts` — full department pages (services, symptoms, conditions,
+  treatments, diagnostics, FAQs) for the six departments with supplied documents
+- `core/data/doctors.ts` — the 88-doctor roster grouped by department
+- `core/data/content.ts` — blogs, testimonials, health packages, schemes and insurance partners
 
-## Additional Resources
+## Known gaps
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- The enquiry and appointment forms have no backend. They validate, then hand the message to the
+  visitor's mail client addressed to the hospital's enquiry inbox. Wire them to a real endpoint
+  before launch.
+- Doctor photographs are placeholders — replace `assets/images/doctor-placeholder.png` usage with
+  real portraits when available.
+- Fourteen of the twenty departments have summary content only; the six with supplied documents
+  (General Medicine, General Surgery, Paediatrics, Pulmonary Medicine, E.N.T., Psychiatry) have full
+  department pages.

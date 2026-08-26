@@ -1,0 +1,89 @@
+<app-page-hero
+  title="Insurance & Government Schemes"
+  tagline="Quality healthcare made accessible."
+  image="assets/images/banner-about.jpg"
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">Overview</span>
+      <h1>Accessible Healthcare Through <span class="heading-accent">Trusted Healthcare Partnerships</span></h1>
+      <p class="lead">
+        MIMS Hospital is committed to making quality healthcare accessible and affordable for every
+        patient. Through empanelment with multiple government healthcare schemes and leading
+        insurance providers, we help patients access cashless hospitalisation and health
+        insurance-supported medical treatment — ensuring timely care while reducing financial
+        concerns.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-head">
+      <h2>Government <span class="heading-accent">Healthcare Schemes</span></h2>
+    </div>
+    <ul class="scheme-grid">
+      @for (scheme of schemes; track scheme) {
+        <li>
+          <span class="scheme-grid__icon"><app-icon name="shield" [size]="18" /></span>
+          {{ scheme }}
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Insurance <span class="heading-accent">Partners</span></h2>
+      <p>
+        MIMS Hospital is associated with a wide range of insurance providers and Third Party
+        Administrators (TPAs), offering cashless health insurance services for a seamless treatment
+        and claims experience.
+      </p>
+    </div>
+    <ul class="pill-list">
+      @for (partner of partners; track partner) {
+        <li>{{ partner }}</li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="panel panel--blue helpdesk">
+      <div>
+        <h2>Cashless Hospitalisation Support</h2>
+        <p>
+          Our dedicated insurance desk provides comprehensive support for cashless hospitalisation,
+          assisting patients with every step of the process.
+        </p>
+        <ul class="helpdesk__list">
+          @for (item of support; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+      <div class="helpdesk__contact">
+        <h3>Insurance Help Desk</h3>
+        <p><a [href]="site.phoneHref">{{ site.phone }}</a></p>
+        <p><a [href]="site.emailHref">{{ site.email }}</a></p>
+        <p class="helpdesk__hours">General OPD: {{ site.opdHours }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-band
+  heading="Need help with cashless health insurance coverage?"
+  text="Contact our insurance help desk for assistance with claims and approvals."
+  primaryLabel="Contact the Help Desk"
+  primaryLink="/contact-us"
+  secondaryLabel="Book Appointment"
+  secondaryLink="/book-appointment"
+/>

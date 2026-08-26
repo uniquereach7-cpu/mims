@@ -1,0 +1,107 @@
+<app-page-hero
+  title="Our Specialities"
+  tagline="Comprehensive Healthcare. Specialised Expertise."
+  image="assets/images/banner-about.jpg"
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h1>Comprehensive Medical Specialities at MIMS Multi-Speciality Hospital</h1>
+      <p class="lead">
+        MIMS Hospital offers a wide range of healthcare services through its General Specialities and
+        Super Speciality Departments. Supported by experienced clinicians, advanced diagnostics,
+        modern operation theatres, and a collaborative multi-disciplinary team, we deliver seamless
+        care for everything from preventive health and routine consultations to complex medical
+        conditions, emergency care, rehabilitation, and specialised treatments.
+      </p>
+    </div>
+
+    <div class="glance">
+      <div class="glance__col">
+        <h3>General Specialities</h3>
+        <ul class="pill-list">
+          @for (item of general; track item.slug) {
+            <li><a [routerLink]="['/specialities', item.slug]">{{ item.name }}</a></li>
+          }
+        </ul>
+      </div>
+      <div class="glance__col">
+        <h3>Super Specialities</h3>
+        <ul class="pill-list">
+          @for (item of supers; track item.slug) {
+            <li><a [routerLink]="['/specialities', item.slug]">{{ item.name }}</a></li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface" id="general">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">General Specialities</span>
+      <h2>Comprehensive Care for <span class="heading-accent">Every Stage of Life</span></h2>
+      <p>
+        Our General Speciality departments serve as the foundation of healthcare delivery at MIMS
+        Hospital. These departments focus on preventive care, early diagnosis, treatment,
+        rehabilitation, and long-term health management for patients of all age groups.
+      </p>
+    </div>
+
+    <div class="grid grid--2">
+      @for (item of general; track item.slug) {
+        <article class="spec">
+          <span class="spec__icon"><app-icon [name]="item.icon" [size]="26" /></span>
+          <div>
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.summary }}</p>
+            <a class="link-arrow" [routerLink]="['/specialities', item.slug]">
+              {{ hasDetail(item.slug) ? 'Learn more about ' + item.name : 'View department' }}
+              <svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7h9M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section" id="super">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">Super Specialities</span>
+      <h2>Advanced Expertise for <span class="heading-accent">Complex Conditions</span></h2>
+      <p>
+        Our Super Speciality departments provide specialised diagnosis and treatment for complex
+        medical conditions requiring advanced expertise, multi-disciplinary collaboration, and
+        sophisticated technology.
+      </p>
+    </div>
+
+    <div class="grid grid--2">
+      @for (item of supers; track item.slug) {
+        <article class="spec">
+          <span class="spec__icon"><app-icon [name]="item.icon" [size]="26" /></span>
+          <div>
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.summary }}</p>
+            <a class="link-arrow" [routerLink]="['/specialities', item.slug]">
+              View department
+              <svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7h9M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<app-cta-band
+  heading="Schedule your consultation with our expert doctors"
+  primaryLabel="Book Appointment"
+  primaryLink="/book-appointment"
+  secondaryLabel="Find a Doctor"
+  secondaryLink="/doctors"
+/>

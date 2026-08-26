@@ -1,0 +1,67 @@
+<app-page-hero
+  title="Physiotherapy & Rehabilitation"
+  tagline="Restoring movement. Rebuilding lives."
+  image="assets/images/service-outpatient.jpg"
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">Overview</span>
+      <h1>Advanced Physiotherapy and Rehabilitation Treatment for <span class="heading-accent">Faster Recovery</span></h1>
+      <p class="lead">
+        The Physiotherapy &amp; Rehabilitation Department at MIMS Hospital focuses on restoring
+        mobility, improving physical function, reducing pain, and helping individuals return to
+        their daily activities with confidence.
+      </p>
+      <p>
+        Our team provides post-surgical rehabilitation programmes, sports injury rehabilitation
+        treatment, and neurological rehabilitation services tailored to individual recovery goals.
+        Working closely with specialists across multiple departments, our physiotherapists deliver
+        evidence-based rehabilitation programmes designed to support faster recovery, improved
+        function, and long-term well-being.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-head">
+      <h2>Physiotherapy and Rehabilitation Services for <span class="heading-accent">Pain Relief and Recovery</span></h2>
+    </div>
+
+    <div class="grid grid--3">
+      @for (service of services; track service.title) {
+        <article class="info-card">
+          <span class="info-card__icon"><app-icon [name]="service.icon" [size]="20" /></span>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split split--wide-left">
+    <div>
+      <h2>Why Choose MIMS for <span class="heading-accent">Physiotherapy and Rehabilitation?</span></h2>
+      <ul class="tick-list reasons">
+        @for (reason of reasons; track reason) {
+          <li>{{ reason }}</li>
+        }
+      </ul>
+    </div>
+    <img src="assets/images/service-outpatient.jpg" alt="Physiotherapy session at MIMS Hospital" />
+  </div>
+</section>
+
+<app-cta-band
+  heading="Begin your recovery journey"
+  text="Book a physiotherapy consultation and start a rehabilitation plan built around your goals."
+  primaryLabel="Book a Consultation"
+  primaryLink="/book-appointment"
+  secondaryLabel="Contact Us"
+  secondaryLink="/contact-us"
+/>

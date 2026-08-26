@@ -1,0 +1,101 @@
+<app-page-hero
+  title="Our Doctors"
+  tagline="Experienced Specialists. Compassionate Care."
+  image="assets/images/banner-about.jpg"
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">Meet Our Experts</span>
+      <h1>Find the Right Specialist for Your Healthcare Needs</h1>
+      <p class="lead">
+        Our team of {{ total }} qualified doctors, surgeons, physicians, and specialists brings
+        together extensive clinical expertise, advanced medical knowledge, and a patient-first
+        approach to healthcare — whether you are seeking preventive care, specialised treatment,
+        surgical intervention, or a general consultation.
+      </p>
+    </div>
+
+    <div class="toolbar">
+      <label class="search">
+        <span class="visually-hidden">Search doctors</span>
+        <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true">
+          <circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.7" />
+          <path d="m14 14 4 4" fill="none" stroke="currentColor" stroke-width="1.7" />
+        </svg>
+        <input type="search" placeholder="Search by name or department" (input)="onSearch($event)" />
+      </label>
+
+      <div class="chips" role="tablist" aria-label="Filter by department">
+        <button
+          type="button"
+          class="chip"
+          [class.is-active]="filter() === 'All'"
+          (click)="setFilter('All')"
+        >All Departments</button>
+        @for (dept of departments; track dept) {
+          <button
+            type="button"
+            class="chip"
+            [class.is-active]="filter() === dept"
+            (click)="setFilter(dept)"
+          >{{ dept }}</button>
+        }
+      </div>
+    </div>
+
+    @if (!visible().length) {
+      <p class="empty">No doctors match that search. Try a different name or department.</p>
+    }
+
+    @for (group of grouped(); track group.department) {
+      <div class="dept-block">
+        <div class="dept-block__head">
+          <h2>{{ group.department }}</h2>
+          @if (specialitySlug(group.department); as slug) {
+            <a class="link-arrow" [routerLink]="['/specialities', slug]">
+              About the department
+              <svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7h9M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+            </a>
+          }
+        </div>
+
+        <div class="grid grid--4">
+          @for (doctor of group.doctors; track doctor.slug) {
+            <article class="doctor-card">
+              <img src="assets/images/doctor-placeholder.png" [alt]="doctor.name" />
+              <div class="doctor-card__body">
+                <h3>{{ doctor.name }}</h3>
+                <p>{{ doctor.department }}</p>
+                <a class="btn btn--blue btn--plain" routerLink="/book-appointment">Book Appointment</a>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <h2>Why Choose <span class="heading-accent">MIMS?</span></h2>
+    </div>
+    <ul class="why-grid">
+      @for (point of whyPoints; track point) {
+        <li>{{ point }}</li>
+      }
+    </ul>
+  </div>
+</section>
+
+<app-cta-band
+  heading="Not sure which specialist you need?"
+  text="Call our helpdesk and we will guide you to the right department."
+  primaryLabel="Book Appointment"
+  primaryLink="/book-appointment"
+  secondaryLabel="Contact Us"
+  secondaryLink="/contact-us"
+/>

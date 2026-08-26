@@ -1,0 +1,196 @@
+<app-page-hero
+  title="About Us"
+  tagline="Trusted Healthcare. Exceptional Care. Lasting Impact."
+  image="assets/images/banner-about.jpg"
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="intro">
+      <div>
+        <h1 class="intro__title">
+          Your Trusted Healthcare Partner for Comprehensive,
+          <span class="heading-accent">Advanced, &amp; Personalised Care</span>
+        </h1>
+        <span class="intro__rule"></span>
+        <p>
+          MIMS Hospital is a trusted name in delivering advanced and patient-centred healthcare.
+          With a strong foundation built on years of experience, we are committed to providing
+          high-quality medical services across a wide range of specialities. Our team of skilled
+          doctors, dedicated nursing staff, and healthcare professionals work together to ensure
+          accurate diagnosis, effective treatment, and compassionate care.
+        </p>
+        <p>
+          At MIMS, we believe healthcare should be accessible, affordable, and centred around the
+          needs of every patient. This philosophy guides everything we do — from routine
+          consultations and preventive health screenings to advanced surgeries and critical care
+          services.
+        </p>
+      </div>
+
+      <div class="intro__aside">
+        <ul class="intro__stats">
+          <li>
+            <strong class="is-amber">10+</strong>
+            <span>Centres of Excellence</span>
+          </li>
+          <li>
+            <strong class="is-violet">30+</strong>
+            <span>Insurance &amp; Schemes</span>
+          </li>
+        </ul>
+        <img src="assets/images/hospital-building.jpg" alt="MIMS Hospital building" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">Our Story</span>
+      <h2>
+        Advancing Healthcare, Medical Education, and
+        <span class="heading-accent">Community Well-being Since 2003</span>
+      </h2>
+    </div>
+
+    <div class="grid grid--3">
+      @for (item of story; track item.title) {
+        <article class="info-card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="founder">
+  <div class="container founder__inner">
+    <figure class="founder__portrait">
+      <img src="assets/images/doctor-placeholder.png" alt="Dr. Alluri Murthy Raju, founder" />
+    </figure>
+    <div class="founder__copy">
+      <h2>Inspired by a Visionary Leader — Dr. A. Murthy Raju</h2>
+      <p>
+        The foundation of MIMS reflects the vision and dedication of founder Dr. Alluri Murthy Raju,
+        an eminent industrialist, educationist, philanthropist, and visionary leader. Under his
+        guidance, Sri Rama Educational Trust established MIMS with the goal of creating a world-class
+        institution that combines exceptional medical education with accessible, patient-centred
+        healthcare.
+      </p>
+      <p>
+        Today, MIMS continues to build on this legacy by investing in modern infrastructure,
+        advanced medical technology, clinical excellence, and community service — strengthening its
+        position as a trusted healthcare and medical education destination in Andhra Pradesh.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <h2>Integrated Healthcare <span class="heading-accent">Under One Roof</span></h2>
+    </div>
+
+    <ul class="facility-grid">
+      @for (item of facilities; track item.label) {
+        <li>
+          <span class="facility-grid__icon"><app-icon [name]="item.icon" [size]="22" /></span>
+          {{ item.label }}
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="vision">
+      <article class="panel panel--blue">
+        <h2>Our Vision</h2>
+        <p>
+          To be a global leader in integrated medical education, research, and empathetic patient
+          care, leveraging cutting-edge technology and state-of-the-art infrastructure to deliver
+          exceptional learning experiences and healthcare outcomes.
+        </p>
+      </article>
+      <article class="panel panel--green">
+        <h2>Our Mission</h2>
+        <p>
+          To deliver compassionate, evidence-based healthcare through clinical excellence, advanced
+          technology, continuous learning, and patient-centred practices. We are committed to
+          nurturing future healthcare professionals, advancing medical research, promoting community
+          well-being, and ensuring accessible, high-quality care for every patient.
+        </p>
+      </article>
+    </div>
+
+    <div class="section-head section-head--center values-head">
+      <h2>Our <span class="heading-accent">Core Values</span></h2>
+    </div>
+
+    <div class="grid grid--3">
+      @for (value of values; track value.title) {
+        <article class="info-card value-card">
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <h2>
+        <span class="heading-accent">Our Services</span> — Comprehensive Care You Can Trust
+      </h2>
+      <p>
+        We offer a wide range of medical services designed to deliver quality care, accurate
+        diagnosis, and effective treatment for every patient.
+      </p>
+    </div>
+
+    <div class="grid grid--4">
+      @for (service of services; track service.title) {
+        <article class="card service-card">
+          <img [src]="service.image" [alt]="service.title" />
+          <div class="card__body">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.text }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split split--wide-left">
+    <div>
+      <h2>Why MIMS Hospital is <span class="heading-accent">Trusted by Families Across Andhra Pradesh</span></h2>
+      <ul class="tick-list trust-list">
+        @for (point of trustPoints; track point) {
+          <li>{{ point }}</li>
+        }
+      </ul>
+      <a class="btn btn--blue" routerLink="/specialities">
+        Explore Our Specialities
+        <span class="btn__arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+        </span>
+      </a>
+    </div>
+    <img src="assets/images/care-hands.jpg" alt="Clinician caring for a patient at MIMS Hospital" />
+  </div>
+</section>
+
+<app-cta-band
+  heading="Here to support your health and well-being"
+  text="Whether you require preventive care, specialist consultation, advanced treatment, or emergency medical services, MIMS Hospital is here for you."
+  tone="green"
+/>

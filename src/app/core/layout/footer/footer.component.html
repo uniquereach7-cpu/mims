@@ -1,0 +1,72 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/images/logo-white.png" [alt]="site.name" />
+        <p>
+          Our hospital delivers advanced, compassionate, and patient-focused care with expert
+          doctors and modern facilities.
+        </p>
+        <a class="btn btn--white btn--plain" routerLink="/book-appointment">Book Appointment</a>
+      </div>
+
+      @for (col of columns; track col.title) {
+        <div class="footer-col">
+          <h4>{{ col.title }}</h4>
+          <ul>
+            @for (link of col.links; track link.path) {
+              <li><a [routerLink]="link.path">{{ link.label }}</a></li>
+            }
+          </ul>
+        </div>
+      }
+
+      <div class="footer-col footer-contact">
+        <h4>Contact Information</h4>
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"
+                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+            </svg>
+            <a [href]="site.phoneHref">{{ site.phone }}</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2.5" y="4.5" width="19" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+              <path d="m3 6 9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.6" />
+            </svg>
+            <a [href]="site.emailHref">{{ site.email }}</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="1.6" />
+              <circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6" />
+            </svg>
+            <span>
+              @for (line of site.addressLines; track line) {
+                {{ line }}<br />
+              }
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-seo">
+      <p>
+        MIMS Hospital is a leading multi-speciality hospital in Vizianagaram, offering advanced
+        diagnostics, emergency care, surgical services, and specialised treatment across multiple
+        clinical disciplines. Located in Nellimarla, Andhra Pradesh, we are committed to delivering
+        accessible, compassionate, and quality healthcare for communities across Northern Andhra
+        Pradesh.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Copyright © {{ year }} | {{ site.name }}</p>
+      <p class="footer-bottom__note">24×7 Emergency Services Available</p>
+    </div>
+  </div>
+</footer>

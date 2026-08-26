@@ -1,0 +1,131 @@
+<app-page-hero
+  title="Book an Appointment"
+  tagline="Book an appointment for expert healthcare at MIMS Hospital."
+  image="assets/images/banner-contact.jpg"
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">Overview</span>
+      <h1>Consult a Specialist Doctor — <span class="heading-accent">Book a Doctor Appointment in Vizianagaram</span></h1>
+      <p class="lead">
+        Scheduling an appointment at MIMS Hospital is simple and convenient. Our team helps you with
+        appointment booking, specialist consultations, and hospital appointment scheduling — ensuring
+        timely access to the right medical expert for your healthcare needs.
+      </p>
+    </div>
+
+    <div class="booking">
+      <div class="booking__form">
+        @if (sent()) {
+          <div class="booking__done">
+            <h2>Request ready to send</h2>
+            <p>
+              We have opened an email addressed to <strong>{{ site.email }}</strong> with your
+              appointment details. Send it and our team will confirm your slot.
+            </p>
+            <p>
+              For a same-day appointment, please call
+              <a [href]="site.phoneHref">{{ site.phone }}</a>.
+            </p>
+          </div>
+        } @else {
+          <h2>Appointment Booking Form</h2>
+          <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <div class="booking__row">
+              <label class="field" [class.field--error]="invalid('name')">
+                <span>Name</span>
+                <input type="text" formControlName="name" autocomplete="name" />
+                @if (invalid('name')) {
+                  <small class="field__error">Please enter your name.</small>
+                }
+              </label>
+
+              <label class="field" [class.field--error]="invalid('phone')">
+                <span>Phone Number</span>
+                <input type="tel" formControlName="phone" autocomplete="tel" />
+                @if (invalid('phone')) {
+                  <small class="field__error">Please enter a valid phone number.</small>
+                }
+              </label>
+            </div>
+
+            <div class="booking__row">
+              <label class="field" [class.field--error]="invalid('department')">
+                <span>Department</span>
+                <select formControlName="department">
+                  <option value="" disabled>Select a department</option>
+                  @for (dept of departments; track dept) {
+                    <option [value]="dept">{{ dept }}</option>
+                  }
+                </select>
+                @if (invalid('department')) {
+                  <small class="field__error">Please choose a department.</small>
+                }
+              </label>
+
+              <label class="field">
+                <span>Preferred Date</span>
+                <input type="date" formControlName="date" />
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Message</span>
+              <textarea formControlName="message" placeholder="Tell us briefly about your concern…"></textarea>
+            </label>
+
+            <button type="submit" class="btn btn--blue">
+              Submit Request
+              <span class="btn__arrow" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+              </span>
+            </button>
+          </form>
+        }
+      </div>
+
+      <aside class="booking__aside">
+        <h2>Take the First Step Towards Better Health</h2>
+
+        <ul class="booking__contact">
+          <li>
+            <span><app-icon name="phone" [size]="20" /></span>
+            <div>
+              <strong>Call Us</strong>
+              <a [href]="site.phoneHref">{{ site.phone }}</a>
+            </div>
+          </li>
+          <li>
+            <span><app-icon name="mail" [size]="20" /></span>
+            <div>
+              <strong>Email Us</strong>
+              <a [href]="site.emailHref">{{ site.email }}</a>
+            </div>
+          </li>
+          <li>
+            <span><app-icon name="pin" [size]="20" /></span>
+            <div>
+              <strong>Visit Us</strong>
+              <address>
+                {{ site.legalName }}<br />
+                @for (line of site.addressLines; track line) {
+                  {{ line }}<br />
+                }
+              </address>
+            </div>
+          </li>
+          <li>
+            <span><app-icon name="clock" [size]="20" /></span>
+            <div>
+              <strong>Hospital Timings</strong>
+              <p>General OPD: {{ site.opdHours }}</p>
+              <p>Emergency: {{ site.emergencyHours }}</p>
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>

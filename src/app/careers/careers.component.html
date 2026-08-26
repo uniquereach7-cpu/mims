@@ -1,0 +1,64 @@
+<app-page-hero
+  title="Careers at MIMS Hospital"
+  tagline="Build a meaningful career in healthcare — join a team committed to clinical excellence, professional growth, and compassionate patient care."
+  image="assets/images/service-emergency.jpg"
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">Overview</span>
+      <h1>Healthcare Career Opportunities for <span class="heading-accent">Medical and Healthcare Professionals</span></h1>
+      <p class="lead">
+        Build a rewarding future with MIMS Hospital through healthcare career opportunities, medical
+        professional jobs, and hospital employment opportunities. Join a team committed to clinical
+        excellence, continuous learning, and delivering exceptional patient care.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-head">
+      <h2>Why <span class="heading-accent">Work With Us?</span></h2>
+    </div>
+    <div class="grid grid--3">
+      @for (item of benefits; track item.title) {
+        <article class="info-card">
+          <span class="info-card__icon"><app-icon [name]="item.icon" [size]="20" /></span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container apply">
+    <div>
+      <h2>Current Openings</h2>
+      <p>
+        Vacancies across clinical, nursing, allied health, and administrative roles are listed here
+        as they open. We also welcome speculative applications from qualified professionals.
+      </p>
+    </div>
+
+    <div class="panel panel--green apply__how">
+      <h3>How to Apply</h3>
+      <p>Send your updated resume to:</p>
+      <p class="apply__email"><a [href]="site.emailHref">{{ site.email }}</a></p>
+      <p class="apply__subject">Subject line: <strong>Application – Position Name</strong></p>
+    </div>
+  </div>
+</section>
+
+<app-cta-band
+  heading="Explore healthcare career opportunities at MIMS Hospital"
+  text="Send us your resume and our HR team will get back to you."
+  primaryLabel="Contact Us"
+  primaryLink="/contact-us"
+  secondaryLabel="About MIMS"
+  secondaryLink="/about-us"
+/>
