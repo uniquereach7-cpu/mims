@@ -21,7 +21,7 @@ export const SITE = {
 
 export const MAIN_NAV: NavLink[] = [
   { label: 'About Us', path: '/about-us' },
-  { label: 'Our Specialities', path: '/specialities' },
+  { label: 'Our Specialities', path: '/specialities', mega: true },
   { label: 'Our Doctors', path: '/doctors' },
   {
     label: 'Resources',

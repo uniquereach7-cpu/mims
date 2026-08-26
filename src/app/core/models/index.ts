@@ -2,6 +2,8 @@ export interface NavLink {
   label: string;
   path: string;
   children?: NavLink[];
+  /** Renders the wide two-column speciality panel instead of a plain submenu. */
+  mega?: boolean;
 }
 
 export interface Doctor {

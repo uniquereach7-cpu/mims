@@ -8,8 +8,74 @@
       <nav class="nav" [ngClass]="{ 'is-open': menuOpen() }" aria-label="Main">
         <ul class="nav__list">
           @for (item of nav; track item.label) {
-            <li class="nav__item" [class.has-children]="item.children?.length">
-              @if (item.children?.length) {
+            <li
+              class="nav__item"
+              [class.has-children]="item.children?.length"
+              [class.has-mega]="item.mega"
+            >
+              @if (item.mega) {
+                <!-- Specialities: link on the label, chevron toggles the panel on touch -->
+                <span class="nav__trigger">
+                  <a
+                    class="nav__link"
+                    [routerLink]="item.path"
+                    routerLinkActive="is-active"
+                  >{{ item.label }}</a>
+                  <button
+                    type="button"
+                    class="nav__chevron"
+                    [attr.aria-expanded]="openSubmenu() === item.label"
+                    [attr.aria-label]="'Show ' + item.label + ' menu'"
+                    (click)="toggleSubmenu(item.label)"
+                  >
+                    <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+                      <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </button>
+                </span>
+
+                <div class="mega" [class.is-open]="openSubmenu() === item.label">
+                  <div class="mega__inner">
+                    <div class="mega__group">
+                      <h4>General Specialities</h4>
+                      <ul class="mega__list">
+                        @for (spec of general; track spec.slug) {
+                          <li>
+                            <a [routerLink]="['/specialities', spec.slug]" (click)="closeSubmenu()">
+                              <span class="mega__icon"><app-icon [name]="spec.icon" [size]="17" /></span>
+                              {{ spec.name }}
+                            </a>
+                          </li>
+                        }
+                      </ul>
+                    </div>
+
+                    <div class="mega__group mega__group--wide">
+                      <h4>Super Specialities</h4>
+                      <ul class="mega__list mega__list--two">
+                        @for (spec of supers; track spec.slug) {
+                          <li>
+                            <a [routerLink]="['/specialities', spec.slug]" (click)="closeSubmenu()">
+                              <span class="mega__icon"><app-icon [name]="spec.icon" [size]="17" /></span>
+                              {{ spec.name }}
+                            </a>
+                          </li>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="mega__foot">
+                    <a class="mega__all" routerLink="/specialities" (click)="closeSubmenu()">
+                      View all specialities
+                      <svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7h9M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </a>
+                    <a class="btn btn--green btn--plain" routerLink="/book-appointment" (click)="closeSubmenu()">
+                      Book an Appointment
+                    </a>
+                  </div>
+                </div>
+              } @else if (item.children?.length) {
                 <button
                   type="button"
                   class="nav__link nav__toggle"
