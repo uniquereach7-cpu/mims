@@ -27,15 +27,16 @@
 }
 
 .footer-brand img {
-  height: 58px;
+  height: 70px;
   width: auto;
   margin-bottom: 22px;
 }
 
-.footer-brand p {
-  max-width: 300px;
-  margin-bottom: 26px;
-  font-size: 0.98rem;
+.footer-contact__emergency {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--white);
+  font-weight: 600;
 }
 
 h4 {
@@ -88,7 +89,7 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 40px;
   padding-block: 22px;
@@ -98,10 +99,6 @@ h4 {
 
 .footer-bottom p {
   margin: 0;
-}
-
-.footer-bottom__note {
-  color: rgba(255, 255, 255, 0.72);
 }
 
 @media (max-width: 980px) {

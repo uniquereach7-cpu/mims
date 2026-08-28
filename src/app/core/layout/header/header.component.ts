@@ -1,5 +1,14 @@
-import { Component, HostListener, signal } from '@angular/core';
-import { NgClass } from '@angular/common';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  OnDestroy,
+  PLATFORM_ID,
+  inject,
+  signal
+} from '@angular/core';
+import { NgClass, isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -14,7 +23,11 @@ import { IconComponent } from '../../../shared/icon/icon.component';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit, OnDestroy {
+  private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly platformId = inject(PLATFORM_ID);
+  private resizeObserver?: ResizeObserver;
+
   readonly nav = MAIN_NAV;
   readonly site = SITE;
   readonly general = GENERAL_SPECIALITIES;
@@ -29,6 +42,29 @@ export class HeaderComponent {
       this.menuOpen.set(false);
       this.openSubmenu.set(null);
     });
+  }
+
+  /**
+   * Page heroes tuck under the floating bar with a negative margin, so they need
+   * the bar's real height — which changes with the breakpoint and the scrolled
+   * state. Publish it instead of hard-coding a guess.
+   */
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    const publish = () =>
+      document.documentElement.style.setProperty(
+        '--header-h',
+        `${this.host.nativeElement.offsetHeight}px`
+      );
+    publish();
+    this.resizeObserver = new ResizeObserver(publish);
+    this.resizeObserver.observe(this.host.nativeElement);
+  }
+
+  ngOnDestroy(): void {
+    this.resizeObserver?.disconnect();
   }
 
   @HostListener('window:scroll')

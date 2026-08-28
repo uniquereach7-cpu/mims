@@ -64,7 +64,7 @@ export const HOSPITAL_STATS = [
   { value: '15+', label: 'Clinical Departments' },
   { value: '11', label: 'Operation Theatres' },
   { value: '24×7', label: 'Emergency & Laboratory' },
-  { value: '30+', label: 'Insurance & Schemes' }
+  { value: '30+', label: 'Insurance & Government Healthcare Schemes' }
 ];
 
 export const DIAGNOSTIC_FACILITIES = [

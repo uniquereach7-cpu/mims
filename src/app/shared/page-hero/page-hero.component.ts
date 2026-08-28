@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core';
           <p class="page-hero__eyebrow">{{ eyebrow }}</p>
         }
         <h1>{{ title }}</h1>
+        <span class="page-hero__rule"></span>
         @if (tagline) {
           <p class="page-hero__tagline">{{ tagline }}</p>
         }

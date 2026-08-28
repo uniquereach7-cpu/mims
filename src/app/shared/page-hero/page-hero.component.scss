@@ -34,11 +34,17 @@
 }
 
 .page-hero h1 {
-  display: inline-block;
   color: var(--blue-900);
   font-weight: 400;
-  padding-bottom: 14px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+  margin-bottom: 18px;
+}
+
+.page-hero__rule {
+  display: block;
+  width: 132px;
+  height: 2px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .page-hero__tagline {

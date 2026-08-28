@@ -3,10 +3,6 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="assets/images/logo-white.png" [alt]="site.name" />
-        <p>
-          Our hospital delivers advanced, compassionate, and patient-focused care with expert
-          doctors and modern facilities.
-        </p>
         <a class="btn btn--white btn--plain" routerLink="/book-appointment">Book Appointment</a>
       </div>
 
@@ -48,6 +44,7 @@
               @for (line of site.addressLines; track line) {
                 {{ line }}<br />
               }
+              <strong class="footer-contact__emergency">24×7 Emergency Services Available</strong>
             </span>
           </li>
         </ul>
@@ -66,7 +63,6 @@
 
     <div class="footer-bottom">
       <p>Copyright © {{ year }} | {{ site.name }}</p>
-      <p class="footer-bottom__note">24×7 Emergency Services Available</p>
     </div>
   </div>
 </footer>

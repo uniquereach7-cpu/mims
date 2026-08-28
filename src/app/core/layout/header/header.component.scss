@@ -6,12 +6,12 @@
 }
 
 .site-header {
-  padding-block: 18px;
+  padding-block: 12px;
   transition: padding 0.25s ease;
 }
 
 .site-header.is-scrolled {
-  padding-block: 10px;
+  padding-block: 8px;
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(10px);
   box-shadow: 0 1px 0 rgba(29, 34, 38, 0.06);
@@ -22,14 +22,14 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  padding: 12px 12px 12px 28px;
+  padding: 10px 12px 10px 26px;
   background: var(--white);
   border-radius: 999px;
   box-shadow: 0 6px 24px rgba(29, 34, 38, 0.1);
 }
 
 .brand img {
-  height: 46px;
+  height: 76px;
   width: auto;
 }
 
@@ -302,7 +302,7 @@
     font-size: 0.94rem;
   }
   .brand img {
-    height: 40px;
+    height: 62px;
   }
   .mega__inner {
     gap: 24px;
@@ -315,7 +315,7 @@
 
 @media (max-width: 1024px) {
   .bar {
-    padding: 10px 12px 10px 20px;
+    padding: 8px 10px 8px 18px;
   }
 
   .burger {

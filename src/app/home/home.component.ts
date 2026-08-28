@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   private timer?: ReturnType<typeof setInterval>;
 
   readonly site = SITE;
-  readonly stats = HOSPITAL_STATS.slice(0, 4);
+  readonly stats = HOSPITAL_STATS;
   readonly facilities = DIAGNOSTIC_FACILITIES;
   readonly testimonials = TESTIMONIALS;
   readonly posts = BLOG_POSTS.slice(0, 3);
@@ -80,9 +80,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   readonly slides: HeroSlide[] = [
     {
-      lead: 'Delivering Advanced Healthcare with',
-      accent: 'Compassion and Expertise',
-      text: 'Compassionate care, advanced medicine and trusted healthcare — with modern technology and a patient-first approach for better outcomes.',
+      lead: 'Compassionate Care. Advanced Medicine.',
+      accent: 'Trusted Healthcare.',
+      text: 'Expert care with modern technology and a patient-first approach for better outcomes.',
       ctaLabel: 'Book an Appointment',
       ctaLink: '/book-appointment',
       image: 'assets/images/hero-doctor-patient.png',

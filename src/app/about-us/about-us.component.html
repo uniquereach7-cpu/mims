@@ -4,6 +4,10 @@
   image="assets/images/banner-about.jpg"
 />
 
+<p class="banner-line">
+  MIMS Hospital – Best Multispeciality Hospital in Vizianagaram, Andhra Pradesh
+</p>
+
 <section class="section">
   <div class="container">
     <div class="intro">
@@ -21,10 +25,11 @@
           accurate diagnosis, effective treatment, and compassionate care.
         </p>
         <p>
-          At MIMS, we believe healthcare should be accessible, affordable, and centred around the
-          needs of every patient. This philosophy guides everything we do — from routine
-          consultations and preventive health screenings to advanced surgeries and critical care
-          services.
+          Maharajah’s Institute of Medical Sciences (MIMS Hospital) is one of the most respected
+          healthcare institutions in Vizianagaram, Andhra Pradesh. At MIMS, we believe that
+          healthcare should be accessible, affordable, and centred around the needs of every
+          patient. This philosophy guides everything we do — from routine consultations and
+          preventive health screenings to advanced surgeries and critical care services.
         </p>
       </div>
 
@@ -72,7 +77,10 @@
       <img src="assets/images/doctor-placeholder.png" alt="Dr. Alluri Murthy Raju, founder" />
     </figure>
     <div class="founder__copy">
-      <h2>Inspired by a Visionary Leader — Dr. A. Murthy Raju</h2>
+      <h2>
+        Inspired by a Visionary Leader
+        <span class="founder__name">Dr. A. Murthy Raju</span>
+      </h2>
       <p>
         The foundation of MIMS reflects the vision and dedication of founder Dr. Alluri Murthy Raju,
         an eminent industrialist, educationist, philanthropist, and visionary leader. Under his
@@ -166,6 +174,15 @@
         </article>
       }
     </div>
+
+    <div class="text-center services__cta">
+      <a class="btn btn--blue" routerLink="/specialities">
+        Explore Our Specialities
+        <span class="btn__arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -178,12 +195,6 @@
           <li>{{ point }}</li>
         }
       </ul>
-      <a class="btn btn--blue" routerLink="/specialities">
-        Explore Our Specialities
-        <span class="btn__arrow" aria-hidden="true">
-          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-        </span>
-      </a>
     </div>
     <img src="assets/images/care-hands.jpg" alt="Clinician caring for a patient at MIMS Hospital" />
   </div>

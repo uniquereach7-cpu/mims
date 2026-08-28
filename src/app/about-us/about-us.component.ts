@@ -34,7 +34,7 @@ export class AboutUsComponent {
     { icon: 'scalpel', label: '11 Fully Equipped Operation Theatres' },
     { icon: 'ambulance', label: '24×7 Emergency & Trauma Care' },
     { icon: 'microscope', label: 'Advanced Diagnostic & Imaging Services' },
-    { icon: 'shield', label: 'Preventive Health Check-up Packages' },
+    { icon: 'shield', label: 'Preventive Health Check‑up Packages' },
     { icon: 'award', label: 'Government Scheme & Insurance Empanelments' }
   ];
 
