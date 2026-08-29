@@ -18,7 +18,6 @@ interface HeroSlide {
   ctaLink: string;
   ctaHref?: string;
   image: string;
-  cutout: boolean;
 }
 
 @Component({
@@ -85,8 +84,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'Expert care with modern technology and a patient-first approach for better outcomes.',
       ctaLabel: 'Book an Appointment',
       ctaLink: '/book-appointment',
-      image: 'assets/images/hero-doctor-patient.webp',
-      cutout: true
+      image: 'assets/images/hero-doctor-patient.webp'
     },
     {
       lead: 'Expert Care for',
@@ -94,8 +92,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'State-of-the-art diagnostics, 880+ beds, and specialists across 15+ departments.',
       ctaLabel: 'Explore Our Specialities',
       ctaLink: '/specialities',
-      image: 'assets/images/service-inpatient.jpg',
-      cutout: false
+      image: 'assets/images/hero-two-doctors.webp'
     },
     {
       lead: 'Emergency Care,',
@@ -104,8 +101,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       ctaLabel: 'Call 24×7 Emergency',
       ctaLink: '',
       ctaHref: SITE.phoneHref,
-      image: 'assets/images/service-emergency.jpg',
-      cutout: false
+      image: 'assets/images/hero-emergency-clinician.webp'
     },
     {
       lead: 'Preventive health check-ups,',
@@ -113,8 +109,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'From children and working professionals to senior citizens — packages built around real risk profiles.',
       ctaLabel: 'View Our Health Packages',
       ctaLink: '/health-checkup',
-      image: 'assets/images/blog-health-checkup.jpg',
-      cutout: false
+      image: 'assets/images/hero-doctor-saree.webp'
     }
   ];
 

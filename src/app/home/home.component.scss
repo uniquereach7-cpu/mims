@@ -72,46 +72,24 @@
 
 .hero__media {
   position: relative;
-  height: 460px;
+  height: 520px;
 }
 
+/* Every slide is a background-removed subject, so the photographs sit directly
+   on the banner artwork rather than inside a frame. */
 .hero__media img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+  object-position: bottom center;
   opacity: 0;
   transition: opacity 0.6s ease;
 }
 
 .hero__media img.is-active {
   opacity: 1;
-}
-
-/* Slide 1 ships as a background-removed subject. Ordinary photographs get an
-   organic blob crop with a feathered edge so they float on the banner too. */
-.hero__media img.is-photo {
-  border-radius: 46% 54% 42% 58% / 56% 44% 56% 44%;
-  filter: saturate(0.96) contrast(1.03);
-  -webkit-mask-image: radial-gradient(
-    ellipse 70% 72% at 50% 50%,
-    #000 58%,
-    rgba(0, 0, 0, 0.86) 76%,
-    transparent 96%
-  );
-  mask-image: radial-gradient(
-    ellipse 70% 72% at 50% 50%,
-    #000 58%,
-    rgba(0, 0, 0, 0.86) 76%,
-    transparent 96%
-  );
-}
-
-.hero__media img.is-cutout {
-  object-fit: contain;
-  object-position: bottom center;
 }
 
 .hero__controls {
