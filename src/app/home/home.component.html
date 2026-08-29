@@ -4,7 +4,7 @@
 
   <div class="container hero__inner">
     <div class="hero__text">
-      @for (slide of slides; track slide.accent; let i = $index) {
+      @for (slide of slides; track $index; let i = $index) {
         <div class="hero__slide" [class.is-active]="active() === i" [attr.aria-hidden]="active() !== i">
           <h1>
             {{ slide.lead }} <span class="heading-accent">{{ slide.accent }}</span>
@@ -21,11 +21,12 @@
     </div>
 
     <div class="hero__media">
-      @for (slide of slides; track slide.image; let i = $index) {
+      @for (slide of slides; track $index; let i = $index) {
         <img
           [src]="slide.image"
           [class.is-active]="active() === i"
           [class.is-cutout]="slide.cutout"
+          [class.is-photo]="!slide.cutout"
           alt=""
           aria-hidden="true"
         />
@@ -39,7 +40,7 @@
     </button>
 
     <div class="hero__dots">
-      @for (slide of slides; track slide.accent; let i = $index) {
+      @for (slide of slides; track $index; let i = $index) {
         <button type="button" [class.is-active]="active() === i" (click)="goTo(i)" [attr.aria-label]="'Go to slide ' + (i + 1)"></button>
       }
     </div>

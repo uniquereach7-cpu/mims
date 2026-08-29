@@ -85,7 +85,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'Expert care with modern technology and a patient-first approach for better outcomes.',
       ctaLabel: 'Book an Appointment',
       ctaLink: '/book-appointment',
-      image: 'assets/images/hero-doctor-patient.png',
+      image: 'assets/images/hero-doctor-patient.webp',
       cutout: true
     },
     {
@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'State-of-the-art diagnostics, 880+ beds, and specialists across 15+ departments.',
       ctaLabel: 'Explore Our Specialities',
       ctaLink: '/specialities',
-      image: 'assets/images/diagnostics.jpg',
+      image: 'assets/images/service-inpatient.jpg',
       cutout: false
     },
     {

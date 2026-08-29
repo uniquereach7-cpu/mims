@@ -44,3 +44,6 @@ Thumbs.db
 src/assets/content/
 src/assets/All Specialities/
 .vercel
+
+# Reference material for choosing hero imagery (not built or served)
+hero-candidates/
