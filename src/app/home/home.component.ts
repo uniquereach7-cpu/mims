@@ -43,12 +43,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     ['general-medicine', 'general-surgery', 'paediatrics', 'ophthalmology'].includes(s.slug)
   );
 
-  readonly featuredDoctors = [
-    DOCTORS.find((d) => d.department === 'General Medicine'),
-    DOCTORS.find((d) => d.department === 'General Surgery'),
-    DOCTORS.find((d) => d.department === 'Paediatrics'),
-    DOCTORS.find((d) => d.department === 'E.N.T.')
-  ].filter((d): d is NonNullable<typeof d> => !!d);
+  readonly featuredDoctors = ['General Medicine', 'General Surgery', 'Paediatrics', 'E.N.T.']
+    .map(
+      (department) =>
+        DOCTORS.find((doctor) => doctor.department === department && doctor.qualifications) ??
+        DOCTORS.find((doctor) => doctor.department === department)
+    )
+    .filter((doctor): doctor is NonNullable<typeof doctor> => !!doctor);
 
   readonly reasons = [
     {

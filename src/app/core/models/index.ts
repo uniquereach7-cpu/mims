@@ -10,6 +10,8 @@ export interface Doctor {
   name: string;
   department: string;
   slug: string;
+  qualifications?: string;
+  designation?: string;
 }
 
 export type SpecialityGroup = 'general' | 'super';

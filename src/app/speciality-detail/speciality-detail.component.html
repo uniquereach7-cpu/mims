@@ -186,13 +186,17 @@
           }
         </div>
 
-        <div class="grid grid--4">
+        <div class="doctor-grid">
           @for (doctor of doctors(); track doctor.slug) {
             <article class="doctor-card">
-              <img src="assets/images/doctor-placeholder.png" [alt]="doctor.name" />
+              <span class="doctor-card__avatar" aria-hidden="true">{{ doctorInitials(doctor.name) }}</span>
               <div class="doctor-card__body">
                 <h3>{{ doctor.name }}</h3>
-                <p>{{ doctor.department }}</p>
+                <p class="doctor-card__designation">{{ doctor.designation || doctor.department }}</p>
+                @if (doctor.qualifications) {
+                  <p class="doctor-card__qualifications">{{ doctor.qualifications }}</p>
+                }
+                <a routerLink="/book-appointment">Book Appointment</a>
               </div>
             </article>
           }

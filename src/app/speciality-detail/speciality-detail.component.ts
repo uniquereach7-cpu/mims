@@ -9,7 +9,7 @@ import { IconComponent } from '../shared/icon/icon.component';
 import { findSpeciality, GENERAL_SPECIALITIES, SUPER_SPECIALITIES } from '../core/data/specialities';
 import { SpecialityDetail } from '../core/models';
 import { SPECIALITY_DETAILS } from '../core/data/speciality-details';
-import { DOCTORS } from '../core/data/doctors';
+import { DOCTORS, doctorInitials } from '../core/data/doctors';
 import { SITE } from '../core/data/site';
 
 @Component({
@@ -25,6 +25,7 @@ export class SpecialityDetailComponent {
   private readonly meta = inject(Meta);
 
   readonly site = SITE;
+  readonly doctorInitials = doctorInitials;
   readonly general = GENERAL_SPECIALITIES;
   readonly supers = SUPER_SPECIALITIES;
 

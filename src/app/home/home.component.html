@@ -224,7 +224,10 @@
           <img src="assets/images/doctor-placeholder.png" [alt]="doctor.name" />
           <div class="doctor-card__body">
             <h3>{{ doctor.name }}</h3>
-            <p>{{ doctor.department }}</p>
+            <p>{{ doctor.designation || doctor.department }}</p>
+            @if (doctor.qualifications) {
+              <small>{{ doctor.qualifications }}</small>
+            }
           </div>
         </article>
       }

@@ -156,23 +156,37 @@
 
 /* doctors */
 
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
 .doctor-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  overflow: hidden;
-  text-align: center;
 }
 
-.doctor-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  background: var(--surface);
+.doctor-card__avatar {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  flex: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--blue), var(--blue-900));
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .doctor-card__body {
-  padding: 20px 16px 24px;
+  min-width: 0;
 }
 
 .doctor-card__body h3 {
@@ -180,9 +194,25 @@
   margin-bottom: 4px;
 }
 
-.doctor-card__body p {
-  color: var(--green);
+.doctor-card__designation {
+  margin-top: 5px;
+  color: var(--blue);
   font-size: 0.92rem;
+}
+
+.doctor-card__qualifications {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.doctor-card__body a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--green);
+  font-size: 0.86rem;
+  font-weight: 500;
 }
 
 /* faqs + others */
@@ -208,7 +238,8 @@
 
 @media (max-width: 800px) {
   .symptom-list,
-  .other-specs {
+  .other-specs,
+  .doctor-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
   }
