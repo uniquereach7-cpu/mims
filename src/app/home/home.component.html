@@ -1,15 +1,23 @@
 <!-- ============================ HERO SLIDER ============================ -->
 <section class="hero">
-  <img class="hero__swoosh" src="assets/images/swoosh.png" alt="" aria-hidden="true" />
+  @for (slide of slides; track $index; let i = $index) {
+    <div
+      class="hero__bg"
+      [class.is-active]="active() === i"
+      [style.backgroundImage]="'url(' + slide.image + ')'"
+      aria-hidden="true"
+    ></div>
+  }
+  <div class="hero__veil" aria-hidden="true"></div>
 
   <div class="container hero__inner">
     <div class="hero__text">
       @for (slide of slides; track $index; let i = $index) {
         <div class="hero__slide" [class.is-active]="active() === i" [attr.aria-hidden]="active() !== i">
+          <span class="hero__rule"></span>
           <h1>
             {{ slide.lead }} <span class="heading-accent">{{ slide.accent }}</span>
           </h1>
-          <span class="hero__rule"></span>
           <p>{{ slide.text }}</p>
           @if (slide.ctaHref) {
             <a class="btn btn--green btn--plain" [href]="slide.ctaHref">{{ slide.ctaLabel }}</a>
@@ -17,17 +25,6 @@
             <a class="btn btn--green btn--plain" [routerLink]="slide.ctaLink">{{ slide.ctaLabel }}</a>
           }
         </div>
-      }
-    </div>
-
-    <div class="hero__media">
-      @for (slide of slides; track $index; let i = $index) {
-        <img
-          [src]="slide.image"
-          [class.is-active]="active() === i"
-          alt=""
-          aria-hidden="true"
-        />
       }
     </div>
   </div>

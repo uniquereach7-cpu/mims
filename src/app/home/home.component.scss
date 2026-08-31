@@ -2,36 +2,52 @@
 
 .hero {
   position: relative;
-  background: var(--blue-600);
-  overflow: hidden;
-  min-height: 560px;
   display: flex;
   align-items: center;
+  min-height: 620px;
+  background: var(--blue-900);
+  overflow: hidden;
 }
 
-.hero__swoosh {
+.hero__bg {
   position: absolute;
-  right: -14%;
-  top: 46%;
-  transform: translateY(-50%);
-  width: 78%;
-  max-width: none;
-  opacity: 0.7;
-  pointer-events: none;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.hero__bg.is-active {
+  opacity: 1;
+}
+
+/* Keeps the headline legible over any photograph: near-solid brand blue on the
+   left where the copy sits, clearing towards the right so the image reads. */
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      90deg,
+      rgba(20, 52, 73, 0.92) 0%,
+      rgba(22, 57, 79, 0.75) 30%,
+      rgba(30, 71, 98, 0.62) 55%,
+      rgba(38, 88, 119, 0.24) 80%,
+      rgba(44, 98, 133, 0.12) 100%
+    ),
+    linear-gradient(180deg, rgba(20, 52, 73, 0.25) 0%, rgba(20, 52, 73, 0) 30%);
 }
 
 .hero__inner {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 40px;
-  padding-block: 64px;
+  z-index: 1;
+  padding-block: 72px 96px;
 }
 
 .hero__text {
   position: relative;
-  min-height: 386px;
+  max-width: 620px;
+  min-height: 340px;
 }
 
 .hero__slide {
@@ -49,74 +65,55 @@
   pointer-events: auto;
 }
 
+.hero__rule {
+  display: block;
+  width: 74px;
+  height: 3px;
+  margin-bottom: 22px;
+  background: var(--green);
+}
+
 .hero h1 {
   color: var(--white);
   font-weight: 400;
-  font-size: clamp(1.9rem, 1.3rem + 1.5vw, 2.7rem);
-  max-width: 13em;
-}
-
-.hero__rule {
-  display: block;
-  width: 158px;
-  height: 1px;
-  margin: 22px 0;
-  background: rgba(255, 255, 255, 0.6);
+  font-size: clamp(1.9rem, 1.2rem + 1.7vw, 2.85rem);
+  text-shadow: 0 2px 18px rgba(12, 34, 48, 0.35);
 }
 
 .hero p {
-  color: rgba(255, 255, 255, 0.92);
   max-width: 30em;
-  margin-bottom: 28px;
-}
-
-.hero__media {
-  position: relative;
-  height: 520px;
-}
-
-/* Every slide is a background-removed subject, so the photographs sit directly
-   on the banner artwork rather than inside a frame. */
-.hero__media img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: bottom center;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.hero__media img.is-active {
-  opacity: 1;
+  margin: 20px 0 30px;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 1.05rem;
+  text-shadow: 0 1px 12px rgba(12, 34, 48, 0.35);
 }
 
 .hero__controls {
   position: absolute;
-  bottom: 24px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 16px;
-  z-index: 2;
 }
 
 .hero__arrow {
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.9);
+  background: rgba(20, 52, 73, 0.25);
+  color: rgba(255, 255, 255, 0.92);
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .hero__arrow:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.2);
   color: var(--white);
 }
 
@@ -136,7 +133,7 @@
 }
 
 .hero__dots button.is-active {
-  background: var(--white);
+  background: var(--green);
 }
 
 /* ---------------------------------------------------------------- ABOUT */
@@ -648,17 +645,27 @@
 }
 
 @media (max-width: 900px) {
-  .hero__inner {
-    grid-template-columns: minmax(0, 1fr);
-    padding-block: 48px 72px;
+  .hero {
+    min-height: 540px;
   }
 
-  .hero__media {
-    display: none;
+  .hero__inner {
+    padding-block: 56px 88px;
   }
 
   .hero__text {
-    min-height: 300px;
+    min-height: 320px;
+  }
+
+  /* on narrow screens the photo sits behind the whole width, so darken evenly */
+  .hero__veil {
+    background: linear-gradient(
+        90deg,
+        rgba(20, 52, 73, 0.94) 0%,
+        rgba(24, 60, 83, 0.86) 55%,
+        rgba(30, 71, 98, 0.7) 100%
+      ),
+      linear-gradient(180deg, rgba(20, 52, 73, 0.25) 0%, rgba(20, 52, 73, 0) 30%);
   }
 
     .testimonials__row {
