@@ -164,7 +164,7 @@
           }
           <ul class="tick-list diagnostics-list">
             @for (item of d.diagnostics.items; track item.title) {
-              <li><strong>{{ item.title }}</strong>@if (item.desc) { — {{ item.desc }} }</li>
+              <li><strong>{{ item.title }}</strong>@if (item.desc) { : {{ item.desc }} }</li>
             }
           </ul>
         </div>

@@ -148,40 +148,45 @@
   align-items: center;
 }
 
+/* The building photo carries the block; the years-of-service figure sits on it
+   as an overlapping card so the two read as one composition. */
 .about__media {
-  display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
-  align-items: center;
+  position: relative;
+  margin: 0;
+  padding-bottom: 34px;
 }
 
 .about__media img {
-  margin-left: -34px;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
 }
 
 .about__stat {
-  padding: 36px 52px 36px 24px;
-  background: var(--surface);
-  border-radius: var(--radius-sm);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 24px 34px;
+  max-width: 62%;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .about__stat strong {
   display: block;
   color: var(--blue);
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 600;
-  margin-bottom: 10px;
+  line-height: 1;
+  margin-bottom: 8px;
 }
 
 .about__stat span {
   color: var(--ink);
-  font-size: 1.02rem;
-}
-
-.about__media img {
-  width: 100%;
-  height: 430px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
 .about__copy h2 {
@@ -662,13 +667,13 @@
 }
 
 @media (max-width: 720px) {
-  .about__media {
-    grid-template-columns: minmax(0, 1fr);
+  .about__media img {
+    height: 260px;
   }
 
-  .about__media img {
-    height: 240px;
-    margin-left: 0;
+  .about__stat {
+    max-width: 78%;
+    padding: 20px 26px;
   }
 
   .why__grid {

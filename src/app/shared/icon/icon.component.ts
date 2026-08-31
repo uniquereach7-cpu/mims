@@ -96,7 +96,7 @@ export class IconComponent {
   }
 
   /**
-   * Assembled from constants in this file only — never from user input — so the
+   * Assembled from constants in this file only, never from user input, so the
    * sanitizer bypass is safe and keeps the paths in the SVG namespace.
    */
   private render(): void {

@@ -46,7 +46,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Page heroes tuck under the floating bar with a negative margin, so they need
-   * the bar's real height — which changes with the breakpoint and the scrolled
+   * the bar's real height, which changes with the breakpoint and the scrolled
    * state. Publish it instead of hard-coding a guess.
    */
   ngAfterViewInit(): void {

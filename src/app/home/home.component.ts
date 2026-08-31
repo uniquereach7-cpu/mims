@@ -106,7 +106,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       lead: 'Preventive health check-ups,',
       accent: 'for every stage of life',
-      text: 'From children and working professionals to senior citizens — packages built around real risk profiles.',
+      text: 'From children and working professionals to senior citizens, with packages built around real risk profiles.',
       ctaLabel: 'View Our Health Packages',
       ctaLink: '/health-checkup',
       image: 'assets/images/hero-doctor-saree.webp'

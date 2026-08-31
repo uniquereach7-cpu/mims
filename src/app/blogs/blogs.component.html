@@ -29,7 +29,7 @@
     </div>
 
     @if (!posts().length) {
-      <p class="empty">No articles published in this category yet — check back soon.</p>
+      <p class="empty">No articles published in this category yet. Check back soon.</p>
     } @else {
       <div class="grid grid--3 posts">
         @for (post of posts(); track post.slug) {

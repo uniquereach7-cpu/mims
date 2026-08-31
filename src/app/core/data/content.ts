@@ -47,7 +47,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'When to Visit the Emergency Room: Signs You Should Never Ignore',
     category: 'General Health',
     excerpt:
-      'Chest pain, sudden weakness, breathlessness, severe bleeding — the symptoms that mean you should reach an emergency department immediately.',
+      'Chest pain, sudden weakness, breathlessness, severe bleeding: the symptoms that mean you should reach an emergency department immediately.',
     image: 'assets/images/blog-preventive-care.jpg'
   },
   {

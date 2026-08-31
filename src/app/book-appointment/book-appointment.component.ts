@@ -42,7 +42,7 @@ export class BookAppointmentComponent {
     }
 
     const { name, phone, department, date, message } = this.form.getRawValue();
-    // No booking backend is wired up yet — hand the request to the visitor's
+    // No booking backend is wired up yet, so hand the request to the visitor's
     // mail client, addressed to the hospital's published enquiry inbox.
     const subject = encodeURIComponent(`Appointment request – ${department}`);
     const body = encodeURIComponent(

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MIMS Hospital — global design system
+   MIMS Hospital global design system
    Derived from the approved design (src/assets/design/*.pdf)
    ========================================================================== */
 
@@ -112,7 +112,7 @@ ul {
 }
 
 /* Route changes should land at the top of the new page instantly, then settle
-   in with a short fade — a smooth scroll would run the whole page height first. */
+   in with a short fade. A smooth scroll would run the whole page height first. */
 @keyframes page-enter {
   from {
     opacity: 0;

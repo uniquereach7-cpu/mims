@@ -48,7 +48,7 @@ export class ContactUsComponent {
     // No enquiry backend is wired up yet, so hand the message to the visitor's
     // mail client addressed to the hospital's published enquiry inbox.
     const subject = encodeURIComponent(`Website enquiry from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n—\n${name}\n${email}`);
+    const body = encodeURIComponent(`${message}\n\n--\n${name}\n${email}`);
 
     if (isPlatformBrowser(this.platformId)) {
       window.location.href = `${SITE.emailHref}?subject=${subject}&body=${body}`;
