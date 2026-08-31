@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'Expert care with modern technology and a patient-first approach for better outcomes.',
       ctaLabel: 'Book an Appointment',
       ctaLink: '/book-appointment',
-      image: 'assets/images/hero-1-hospital.jpg'
+      image: 'assets/images/hero-1-advanced.jpg'
     },
     {
       lead: 'Expert Care for',
@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'State-of-the-art diagnostics, 880+ beds, and specialists across 15+ departments.',
       ctaLabel: 'Explore Our Specialities',
       ctaLink: '/specialities',
-      image: 'assets/images/hero-2-team.jpg'
+      image: 'assets/images/hero-2-corridor.jpg'
     },
     {
       lead: 'Emergency Care,',
@@ -109,7 +109,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'From children and working professionals to senior citizens, with packages built around real risk profiles.',
       ctaLabel: 'View Our Health Packages',
       ctaLink: '/health-checkup',
-      image: 'assets/images/hero-4-checkup.jpg'
+      image: 'assets/images/hero-4-diagnostics.jpg'
     }
   ];
 
