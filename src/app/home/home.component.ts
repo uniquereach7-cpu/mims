@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { PLATFORM_ID, inject } from '@angular/core';
+import { NgZone, PLATFORM_ID, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { IconComponent } from '../shared/icon/icon.component';
@@ -29,6 +29,7 @@ interface HeroSlide {
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly zone = inject(NgZone);
   private timer?: ReturnType<typeof setInterval>;
 
   readonly site = SITE;
@@ -92,7 +93,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'State-of-the-art diagnostics, 880+ beds, and specialists across 15+ departments.',
       ctaLabel: 'Explore Our Specialities',
       ctaLink: '/specialities',
-      image: 'assets/images/hero-2-corridor.jpg'
+      image: 'assets/images/hero-2-care-journey.jpg'
     },
     {
       lead: 'Emergency Care,',
@@ -101,7 +102,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       ctaLabel: 'Call 24×7 Emergency',
       ctaLink: '',
       ctaHref: SITE.phoneHref,
-      image: 'assets/images/hero-3-emergency.jpg'
+      image: 'assets/images/hero-3-emergency-care.jpg'
     },
     {
       lead: 'Preventive health check-ups,',
@@ -117,7 +118,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.timer = setInterval(() => this.next(), 7000);
+      this.zone.runOutsideAngular(() => {
+        this.timer = setInterval(() => {
+          this.zone.run(() => this.next());
+        }, 6000);
+      });
     }
   }
 

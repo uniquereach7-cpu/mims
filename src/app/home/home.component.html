@@ -1,5 +1,5 @@
 <!-- ============================ HERO SLIDER ============================ -->
-<section class="hero">
+<section class="hero" aria-roledescription="carousel" aria-label="MIMS healthcare highlights">
   @for (slide of slides; track $index; let i = $index) {
     <div
       class="hero__bg"
@@ -36,7 +36,13 @@
 
     <div class="hero__dots">
       @for (slide of slides; track $index; let i = $index) {
-        <button type="button" [class.is-active]="active() === i" (click)="goTo(i)" [attr.aria-label]="'Go to slide ' + (i + 1)"></button>
+        <button
+          type="button"
+          [class.is-active]="active() === i"
+          (click)="goTo(i)"
+          [attr.aria-current]="active() === i ? 'true' : null"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+        ></button>
       }
     </div>
 
