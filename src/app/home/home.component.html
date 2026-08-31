@@ -5,6 +5,7 @@
       class="hero__bg"
       [class.is-active]="active() === i"
       [style.backgroundImage]="'url(' + slide.image + ')'"
+      [style.backgroundPosition]="slide.imagePosition || 'center'"
       aria-hidden="true"
     ></div>
   }

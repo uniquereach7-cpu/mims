@@ -18,6 +18,7 @@ interface HeroSlide {
   ctaLink: string;
   ctaHref?: string;
   image: string;
+  imagePosition?: string;
 }
 
 @Component({
@@ -94,7 +95,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'State-of-the-art diagnostics, 880+ beds, and specialists across 15+ departments.',
       ctaLabel: 'Explore Our Specialities',
       ctaLink: '/specialities',
-      image: 'assets/images/hero-2-care-journey.jpg'
+      image: 'assets/images/hero-2-care-journey.jpg',
+      imagePosition: 'center 32%'
     },
     {
       lead: 'Emergency Care,',
@@ -103,7 +105,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       ctaLabel: 'Call 24×7 Emergency',
       ctaLink: '',
       ctaHref: SITE.phoneHref,
-      image: 'assets/images/hero-3-emergency-care.jpg'
+      image: 'assets/images/hero-3-emergency-care.jpg',
+      imagePosition: 'center 32%'
     },
     {
       lead: 'Preventive health check-ups,',

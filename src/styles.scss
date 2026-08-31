@@ -43,6 +43,13 @@
   --shadow-lg: 0 20px 50px rgba(29, 34, 38, 0.12);
 }
 
+@media (min-width: 1800px) {
+  :root {
+    --container-wide: 1680px;
+    --gutter: 32px;
+  }
+}
+
 *,
 *::before,
 *::after {
