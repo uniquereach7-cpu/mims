@@ -78,14 +78,33 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   }
 
   toggleMenu(): void {
-    this.menuOpen.update((v) => !v);
+    const opening = !this.menuOpen();
+    this.menuOpen.set(opening);
+    if (!opening) {
+      this.openSubmenu.set(null);
+    }
+    this.resetMobileNavScroll();
   }
 
   toggleSubmenu(label: string): void {
     this.openSubmenu.update((v) => (v === label ? null : label));
+    this.resetMobileNavScroll();
   }
 
   closeSubmenu(): void {
     this.openSubmenu.set(null);
+    this.resetMobileNavScroll();
+  }
+
+  private resetMobileNavScroll(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    requestAnimationFrame(() => {
+      const nav = this.host.nativeElement.querySelector('.nav') as HTMLElement | null;
+      nav?.scrollTo({ top: 0 });
+      const mega = this.host.nativeElement.querySelector('.mega') as HTMLElement | null;
+      mega?.scrollTo({ top: 0 });
+    });
   }
 }

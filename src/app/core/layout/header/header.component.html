@@ -35,6 +35,19 @@
                 </span>
 
                 <div class="mega" [class.is-open]="openSubmenu() === item.label">
+                  <div class="mega__mobile-head">
+                    <span>Our Specialities</span>
+                    <button
+                      type="button"
+                      class="mega__mobile-close"
+                      aria-label="Close Our Specialities"
+                      (click)="closeSubmenu()"
+                    >
+                      <svg width="14" height="8" viewBox="0 0 14 8" aria-hidden="true">
+                        <path d="M1 7l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
                   <div class="mega__inner">
                     <div class="mega__group">
                       <h4>General Specialities</h4>

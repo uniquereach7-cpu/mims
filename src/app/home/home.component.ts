@@ -87,7 +87,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: 'Expert care with modern technology and a patient-first approach for better outcomes.',
       ctaLabel: 'Book an Appointment',
       ctaLink: '/book-appointment',
-      image: 'assets/images/hero-1-advanced.jpg'
+      image: 'assets/images/hero-1-compassionate-care-v2.webp',
+      imagePosition: '68% 30%'
     },
     {
       lead: 'Expert Care for',
