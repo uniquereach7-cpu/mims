@@ -8,7 +8,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent),
-    title: 'MIMS Hospital – Advanced Multi-Speciality Healthcare in Vizianagaram'
+    title: 'MIMS Hospital – Advanced Multi‑Speciality Healthcare in Vizianagaram'
   },
   {
     path: 'about-us',
@@ -37,7 +37,7 @@ export const routes: Routes = [
     path: 'health-checkup',
     loadComponent: () =>
       import('./health-checkup/health-checkup.component').then((m) => m.HealthCheckupComponent),
-    title: 'Health Check-up Packages | MIMS Hospital'
+    title: 'Health Check‑up Packages | MIMS Hospital'
   },
   {
     path: 'physiotherapy',

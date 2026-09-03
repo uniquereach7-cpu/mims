@@ -88,6 +88,7 @@ h5 {
   font-weight: 600;
   line-height: 1.22;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 h1 {
@@ -201,6 +202,11 @@ main > *:not(router-outlet) {
 }
 .heading-accent--blue {
   color: var(--blue);
+}
+
+/* Keep short compound names together so a line never ends on a hyphen. */
+.no-break {
+  white-space: nowrap;
 }
 
 .section-head {

@@ -28,7 +28,7 @@ export const BLOG_CATEGORIES = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'preventive-health-checkups',
-    title: 'Understanding Preventive Health Check-ups: Why Every Adult Needs One',
+    title: 'Understanding Preventive Health Check‑ups: Why Every Adult Needs One',
     category: 'Preventive Healthcare',
     excerpt:
       'Routine screening picks up risk factors long before symptoms appear. Here is what a preventive health check-up covers and how often adults should book one.',
@@ -131,43 +131,43 @@ export const INSURANCE_PARTNERS = [
 
 export const HEALTH_PACKAGES = [
   {
-    name: 'Master Health Check-up',
+    name: 'Master Health Check‑up',
     desc: 'A comprehensive preventive screening package designed to assess the overall functioning of vital organs and identify early signs of disease.',
     meta: 'Recommended for adults above 30 years seeking a complete health evaluation.',
     items: [] as string[]
   },
   {
-    name: 'Executive Health Check-up',
+    name: 'Executive Health Check‑up',
     desc: 'Designed for working professionals exposed to stress, irregular schedules, and lifestyle-related health risks.',
     meta: 'Focus areas',
     items: ['Heart Health', 'Diabetes Screening', 'Liver Function', 'Kidney Function', 'Metabolic Health']
   },
   {
-    name: 'Well Women Health Check-up',
+    name: 'Well Women Health Check‑up',
     desc: 'Specially designed for women’s unique healthcare needs.',
     meta: 'Includes evaluation of',
     items: ['Reproductive Health', 'Hormonal Health', 'Breast Health', 'Bone Health', 'General Wellness']
   },
   {
-    name: 'Children’s Health Check-up',
+    name: 'Children’s Health Check‑up',
     desc: 'Comprehensive health screening designed to monitor growth, nutrition, immunity, and developmental milestones.',
     meta: '',
     items: []
   },
   {
-    name: 'Senior Citizen Health Check-up',
+    name: 'Senior Citizen Health Check‑up',
     desc: 'Focused preventive screening for age-related health concerns.',
     meta: 'Covers',
     items: ['Cardiac Health', 'Bone Health', 'Kidney Function', 'Diabetes Screening', 'General Wellness']
   },
   {
-    name: 'Comprehensive Diabetic Check-up',
+    name: 'Comprehensive Diabetic Check‑up',
     desc: 'A detailed health assessment designed to identify diabetes-related complications and monitor long-term disease control.',
     meta: '',
     items: []
   },
   {
-    name: 'Pre-Employment Health Check-up',
+    name: 'Pre‑Employment Health Check‑up',
     desc: 'Comprehensive screening to evaluate an individual’s fitness for employment and workplace responsibilities.',
     meta: '',
     items: []
@@ -179,13 +179,13 @@ export const HEALTH_PACKAGES = [
     items: []
   },
   {
-    name: 'Heart Check-up Package',
+    name: 'Heart Check‑up Package',
     desc: 'Early detection and assessment of cardiovascular risk factors through targeted cardiac screening.',
     meta: '',
     items: []
   },
   {
-    name: 'Kidney Check-up Package',
+    name: 'Kidney Check‑up Package',
     desc: 'Preventive kidney screening for early identification of renal disorders and kidney-related complications.',
     meta: '',
     items: []

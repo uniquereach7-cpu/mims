@@ -16,5 +16,5 @@ import { HEALTH_PACKAGES } from '../core/data/content';
 export class HealthCheckupComponent {
   readonly packages = HEALTH_PACKAGES;
 
-  readonly headline = ['Master Health Check-up', 'Executive Health Check-up', 'Comprehensive Health Check-up'];
+  readonly headline = ['Master Health Check‑up', 'Executive Health Check‑up', 'Comprehensive Health Check‑up'];
 }

@@ -201,7 +201,7 @@ export const SPECIALITY_DETAILS: Record<string, SpecialityDetail> = {
         'Our General Medicine services cover preventive care, diagnosis, treatment and long-term management across a wide range of medical needs.'
       ],
       items: [
-        { title: 'Preventive Health & Medical Check-ups', desc: 'Health assessments and screening to identify risk factors and potential health problems at an early stage.' },
+        { title: 'Preventive Health & Medical Check‑ups', desc: 'Health assessments and screening to identify risk factors and potential health problems at an early stage.' },
         { title: 'Chronic Disease Management', desc: 'Long-term monitoring and treatment for conditions such as diabetes, hypertension, thyroid disorders and other lifestyle-related diseases.' },
         { title: 'Infectious Disease Management', desc: 'Diagnosis and medical treatment of common and complex infections, including respiratory, gastrointestinal and other systemic infections.' },
         { title: 'Fever Evaluation & Management', desc: 'Systematic evaluation of persistent, recurrent or unexplained fever to identify the underlying cause and provide appropriate treatment.' },
@@ -395,8 +395,8 @@ export const SPECIALITY_DETAILS: Record<string, SpecialityDetail> = {
         { title: 'Soft Tissue & Skin Surgery', desc: 'Surgical treatment of selected cysts, lipomas, abscesses and other conditions involving the skin and soft tissues.' },
         { title: 'Laparoscopic Surgery', desc: 'Minimally invasive surgical procedures performed through small incisions where clinically appropriate, with the potential for reduced postoperative discomfort and shorter recovery.' },
         { title: 'Emergency General Surgery', desc: 'Prompt surgical evaluation and management of acute conditions such as appendicitis, intestinal obstruction, perforation and other surgical emergencies.' },
-        { title: 'Day-Care & Minor Surgical Procedures', desc: 'Selected procedures that may be performed without prolonged hospitalisation, depending on the patient\'s condition and clinical requirements.' },
-        { title: 'Postoperative Care & Follow-up', desc: 'Monitoring recovery after surgery, managing postoperative concerns and providing follow-up care to support safe recovery.' }
+        { title: 'Day‑Care & Minor Surgical Procedures', desc: 'Selected procedures that may be performed without prolonged hospitalisation, depending on the patient\'s condition and clinical requirements.' },
+        { title: 'Postoperative Care & Follow‑up', desc: 'Monitoring recovery after surgery, managing postoperative concerns and providing follow-up care to support safe recovery.' }
       ]
     },
     symptoms: {
@@ -490,7 +490,7 @@ export const SPECIALITY_DETAILS: Record<string, SpecialityDetail> = {
         { title: 'Anorectal Procedures', desc: 'Surgical treatment of selected conditions such as haemorrhoids, anal fissures, fistulas and abscesses.' },
         { title: 'Minor Surgical Procedures', desc: 'Selected procedures for conditions involving the skin, soft tissues and other areas that may not require major surgery.' },
         { title: 'Emergency Surgical Management', desc: 'Prompt assessment and surgical treatment of acute conditions requiring urgent intervention.' },
-        { title: 'Postoperative Care & Follow-up', desc: 'Monitoring recovery, managing postoperative symptoms and providing appropriate follow-up after surgery.' }
+        { title: 'Postoperative Care & Follow‑up', desc: 'Monitoring recovery, managing postoperative symptoms and providing appropriate follow-up after surgery.' }
       ]
     },
     diagnostics: {
@@ -732,7 +732,7 @@ export const SPECIALITY_DETAILS: Record<string, SpecialityDetail> = {
     faqs: [
       { q: 'What does a Paediatrician treat?', a: 'A Paediatrician or child specialist doctor provides medical care for infants, children and adolescents, including common childhood illnesses, infections, respiratory conditions, nutritional concerns, growth and developmental concerns, and many acute and chronic conditions.' },
       { q: 'When should I take my child to a Paediatrician?', a: 'You should consider consulting a Paediatric doctor for children if your child has persistent fever, difficulty breathing, repeated infections, poor feeding, ongoing vomiting or diarrhoea, poor weight gain, developmental concerns or any symptoms that are persistent, unusual or worrying.' },
-      { q: 'Does Paediatrics include vaccination and immunisation?', a: 'Paediatric care commonly includes vaccination and immunisation services. Vaccines should be given according to the applicable recommended schedule, with the Paediatrician advising parents on age-appropriate vaccinations and any child health check-ups' },
+      { q: 'Does Paediatrics include vaccination and immunisation?', a: 'Paediatric care commonly includes vaccination and immunisation services. Vaccines should be given according to the applicable recommended schedule, with the paediatrician advising parents on age-appropriate vaccinations and any child health check-ups.' },
       { q: 'Can a Paediatrician help with my child\'s growth or developmental concerns?', a: 'Yes. Paediatricians can assess growth patterns and developmental milestones and identify concerns that may require further evaluation. Where necessary, they can coordinate assessment or referral to appropriate specialists or developmental services.' },
       { q: 'When should I take my child to Emergency Care instead of a Paediatrician?', a: 'Severe breathing difficulty, seizures, loss of consciousness, severe dehydration, significant bleeding, sudden weakness or a child who is difficult to wake requires urgent medical attention. In such situations, Emergency Care should be sought immediately.' }
     ]

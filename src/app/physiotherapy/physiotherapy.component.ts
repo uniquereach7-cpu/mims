@@ -35,7 +35,7 @@ export class PhysiotherapyComponent {
     },
     {
       icon: 'scalpel',
-      title: 'Post-Surgical Rehabilitation',
+      title: 'Post‑Surgical Rehabilitation',
       text: 'Helping patients regain strength and functionality after surgery.'
     }
   ];

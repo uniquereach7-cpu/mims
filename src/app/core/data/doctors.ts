@@ -9,7 +9,8 @@ const doctor = (name: string, department: string, details: Partial<DoctorDetails
   name,
   department,
   slug: slugify(name),
-  ...details
+  ...details,
+  designation: details.designation?.replace(/\s+-\s+/g, ', ')
 });
 
 const consultant = (name: string, department: string, designation = `Consultant - ${department}`): Doctor =>
