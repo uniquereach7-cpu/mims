@@ -6,6 +6,7 @@
       [class.is-active]="active() === i"
       [style.backgroundImage]="'url(' + slide.image + ')'"
       [style.backgroundPosition]="slide.imagePosition || 'center'"
+      [style.--hero-mobile-position]="slide.mobileImagePosition || slide.imagePosition || 'center'"
       aria-hidden="true"
     ></div>
   }

@@ -19,6 +19,7 @@ interface HeroSlide {
   ctaHref?: string;
   image: string;
   imagePosition?: string;
+  mobileImagePosition?: string;
 }
 
 @Component({
@@ -88,7 +89,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       ctaLabel: 'Book an Appointment',
       ctaLink: '/book-appointment',
       image: 'assets/images/hero-1-compassionate-care-v2.webp',
-      imagePosition: '68% 30%'
+      imagePosition: '68% 30%',
+      mobileImagePosition: '76% 30%'
     },
     {
       lead: 'Expert Care for',
