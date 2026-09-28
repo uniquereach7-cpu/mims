@@ -95,7 +95,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       lead: 'Expert Care for',
       accent: 'Every Health Journey',
-      text: 'State-of-the-art diagnostics, 880+ beds, and specialists across 15+ departments.',
+      text: 'State-of-the-art diagnostics, 1,000+ beds, and specialists across 15+ departments.',
       ctaLabel: 'Explore Our Specialities',
       ctaLink: '/specialities',
       image: 'assets/images/hero-2-care-journey.jpg',

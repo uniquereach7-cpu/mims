@@ -1,0 +1,131 @@
+<app-page-hero
+  title="Hospital Infrastructure"
+  tagline="Advanced Infrastructure. Integrated Care. Better Equipped for Complex Healthcare."
+  image="assets/images/diagnostics.jpg"
+/>
+
+<p class="banner-line">Advanced Hospital Infrastructure &amp; Capacity in Vizianagaram</p>
+
+<section class="section infrastructure-intro">
+  <div class="container overview">
+    <div>
+      <span class="eyebrow eyebrow--plain">Overview</span>
+      <h1>Advanced Healthcare Infrastructure <span class="heading-accent">Under One Roof</span></h1>
+    </div>
+    <div>
+      <p class="lead">
+        MIMS Hospital brings together advanced hospital infrastructure in Vizianagaram, modern
+        critical care facilities, advanced diagnostics, operating theatres and specialist services
+        to support multispeciality and super-speciality healthcare.
+      </p>
+      <p>
+        With advanced imaging and diagnostic facilities, intensive care units, surgical
+        infrastructure and dedicated patient facilities, MIMS is equipped to support a wide range
+        of medical and complex clinical needs.
+      </p>
+      <a class="btn btn--blue" href="#facilities">Explore Our Facilities</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface" id="facilities">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">Hospital Facilities &amp; Bed Strength</span>
+      <h2><span class="heading-accent">880+</span> Existing Teaching Beds</h2>
+      <p>
+        MIMS Hospital has a broad bed capacity across key clinical departments, supporting
+        comprehensive patient care across multiple specialities.
+      </p>
+    </div>
+
+    <div class="bed-grid">
+      @for (item of teachingBeds; track item.department) {
+        <article class="bed-card">
+          <span>{{ item.department }}</span>
+          <strong>{{ item.beds }}</strong>
+          <small>Beds</small>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section capacity-section">
+  <div class="container capacity-grid">
+    <article class="capacity-panel capacity-panel--blue">
+      <span class="capacity-panel__icon"><app-icon name="ambulance" [size]="25" /></span>
+      <h2>Dedicated Facilities for Critical and Emergency Care</h2>
+      <ul>
+        @for (item of criticalCare; track item.label) {
+          <li><span>{{ item.label }}</span><strong>{{ item.value }}</strong></li>
+        }
+      </ul>
+    </article>
+
+    <article class="capacity-panel">
+      <span class="capacity-panel__icon"><app-icon name="building" [size]="25" /></span>
+      <h2>Comfortable Patient Accommodation</h2>
+      <ul>
+        @for (item of accommodation; track item.label) {
+          <li><span>{{ item.label }}</span><strong>{{ item.value }}</strong></li>
+        }
+      </ul>
+    </article>
+  </div>
+
+  <div class="container theatre-strip">
+    @for (item of theatres; track item.label) {
+      <article>
+        <strong>{{ item.value }}</strong>
+        <span>{{ item.label }}</span>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section section--surface specialised">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow eyebrow--plain">Specialised Infrastructure</span>
+      <h2>Purpose-Built Facilities for <span class="heading-accent">Specialist Care</span></h2>
+    </div>
+
+    <div class="specialised__list">
+      @for (facility of specialisedFacilities; track facility.title; let i = $index) {
+        <article class="facility-card" [class.facility-card--reverse]="i % 2 === 1">
+          <div class="facility-card__summary">
+            <span class="facility-card__icon"><app-icon [name]="facility.icon" [size]="28" /></span>
+            <h3>{{ facility.title }}</h3>
+            <p>{{ facility.text }}</p>
+            <ul class="tick-list">
+              @for (service of facility.services; track service) {
+                <li>{{ service }}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="facility-card__doctors">
+            <span class="facility-card__label">Specialist Team</span>
+            @for (doctor of facility.doctors; track doctor.name) {
+              <div class="doctor-profile">
+                <h4>{{ doctor.name }}</h4>
+                <p>{{ doctor.qualifications }}</p>
+                <small>{{ doctor.role }}</small>
+              </div>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<app-cta-band
+  heading="Explore advanced care at MIMS Hospital"
+  text="Connect with our team for specialist consultations, hospital services or admission support."
+  primaryLabel="Book an Appointment"
+  primaryLink="/book-appointment"
+  secondaryLabel="Contact Us"
+  secondaryLink="/contact-us"
+/>

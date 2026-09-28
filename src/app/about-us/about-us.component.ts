@@ -13,28 +13,55 @@ import { IconComponent } from '../shared/icon/icon.component';
   styleUrl: './about-us.component.scss'
 })
 export class AboutUsComponent {
-  readonly story = [
-    {
-      title: 'Building a Legacy of Service',
-      text: 'Established in 2003 by the Sri Rama Educational Trust, Maharajah’s Institute of Medical Sciences has grown into one of the most respected medical institutions in Uttarandhra, serving Vizianagaram, neighbouring districts of Andhra Pradesh, and parts of Odisha. Located in Nellimarla, MIMS was founded with a vision to make quality healthcare and medical education accessible to communities that previously had limited access to advanced medical facilities.'
-    },
-    {
-      title: 'Caring for Communities',
-      text: 'Over the years, MIMS has evolved into a comprehensive centre for patient care, medical education, research, and community outreach. Through advanced clinical services, preventive healthcare initiatives, government healthcare schemes, and numerous medical camps, the institution has positively impacted thousands of lives across the region.'
-    },
-    {
-      title: 'Excellence in Medical Education',
-      text: 'As one of the region’s leading medical colleges and teaching hospitals, MIMS is committed to nurturing future healthcare professionals through rigorous academic training, clinical exposure, research opportunities, and a culture of excellence. The institution is widely recognised for its academic standards, disciplined learning environment, and commitment to producing skilled, compassionate medical practitioners.'
-    }
+  readonly integratedModel = [
+    'Multispeciality and super-speciality healthcare',
+    'Medical education and clinical training',
+    'Advanced diagnostic and imaging facilities',
+    'Emergency and critical care services',
+    'Surgical and interventional procedures',
+    'Nursing and paramedical education',
+    'Preventive healthcare and medical camps',
+    'Healthcare services supported through government schemes and empanelments',
+    'Clinical learning and research'
+  ];
+
+  readonly founderInstitutions = [
+    'Sree Sitaramchandra Swamy Devasthanam, Bhadrachalam – Construction Committee',
+    'Jagannath Institute for Technology & Management (JITM), Parlakhemundi',
+    'Kakatiya Institute of Technology & Sciences (KITS), Warangal',
+    'Alluri Institute of Management Sciences (AIMS), Warangal',
+    'A.S.R. Public School, Araku Valley',
+    'Chandana Agro Tech (P) Ltd, Gunupur, Odisha',
+    'Warangal Public School, Warangal',
+    'Alluri Trust, Warangal – Managing Trustee'
+  ];
+
+  readonly founderAwards = [
+    'Rashtriya Ratan National Award – 2001',
+    'Pride of India – 2002',
+    'Doctorate of Philosophy in Education – 2013, AIM Westbrook University, USA'
+  ];
+
+  readonly leadership = [
+    { name: 'Sri Alluri Satyanarayana Raju Garu', role: 'Chairman' },
+    { name: 'Dr. B.H.V.K. Praveen Varma Garu', role: 'Managing Director & Life Time Trustee' }
+  ];
+
+  readonly trustees = [
+    { name: 'Sri B. Rama Krishna Raju', role: 'Lifetime Trustee' },
+    { name: 'Mr. Alluri Jitender Nath', role: 'Life Trustee' },
+    { name: 'Mr. Prithvi Kalidindi', role: 'Life Trustee' },
+    { name: 'Mr. GVVSN Varma', role: 'Nominated Trustee' }
   ];
 
   readonly facilities = [
     { icon: 'building', label: '880+ Hospital Beds' },
-    { icon: 'activity', label: '15 Clinical Departments' },
+    { icon: 'activity', label: '15+ Clinical and Super-Specialities' },
     { icon: 'scalpel', label: '11 Fully Equipped Operation Theatres' },
-    { icon: 'ambulance', label: '24×7 Emergency & Trauma Care' },
+    { icon: 'ambulance', label: '24×7 Emergency & Critical Care' },
     { icon: 'microscope', label: 'Advanced Diagnostic & Imaging Services' },
-    { icon: 'shield', label: 'Preventive Health Check‑up Packages' },
+    { icon: 'shield', label: 'Preventive Health Check-up Packages' },
+    { icon: 'users', label: 'Medical, Nursing and Paramedical Education' },
     { icon: 'award', label: 'Government Scheme & Insurance Empanelments' }
   ];
 
@@ -50,48 +77,26 @@ export class AboutUsComponent {
     },
     {
       title: 'Innovation',
-      text: 'Leveraging technology and research to continuously improve patient outcomes.'
+      text: 'Using technology, knowledge and research to continuously strengthen healthcare delivery.'
     },
     {
       title: 'Collaboration',
-      text: 'Working together across disciplines to provide holistic and coordinated care.'
+      text: 'Bringing together medical, nursing, technical and support teams to deliver coordinated patient care.'
     },
     {
       title: 'Community',
-      text: 'Serving society through accessible healthcare, awareness, and outreach initiatives.'
+      text: 'Serving society through accessible healthcare, awareness, and community outreach.'
     }
   ];
 
   readonly trustPoints = [
-    'Compassionate Care',
-    'Experienced Specialists',
-    'Advanced Diagnostic Facilities',
-    '24×7 Emergency Support',
-    'Affordable Treatment Options',
-    'Government Scheme Empanelment',
-    'Community-Focused Healthcare'
-  ];
-
-  readonly services = [
-    {
-      title: 'Emergency Care',
-      text: '24/7 emergency services with rapid response and expert medical support.',
-      image: 'assets/images/service-emergency.jpg'
-    },
-    {
-      title: 'Outpatient Services',
-      text: 'Quick consultations, diagnosis, and treatment without hospital admission.',
-      image: 'assets/images/service-outpatient.jpg'
-    },
-    {
-      title: 'Inpatient Care',
-      text: 'Comfortable stay with continuous monitoring and personalised treatment.',
-      image: 'assets/images/service-inpatient.jpg'
-    },
-    {
-      title: 'Pharmacy Services',
-      text: 'In-house pharmacy providing convenient access to essential medicines.',
-      image: 'assets/images/service-pharmacy.jpg'
-    }
+    'More than two decades of service to the region',
+    'Comprehensive multi-speciality and super-speciality healthcare',
+    'Integrated medical education, clinical training and research',
+    'Advanced surgical, critical care and diagnostic facilities',
+    '24×7 emergency and critical care services',
+    'Government and ESIC empanelments',
+    'Railway healthcare scheme empanelment',
+    'NABH Entry-Level Accreditation'
   ];
 }

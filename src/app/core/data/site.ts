@@ -27,6 +27,7 @@ export const MAIN_NAV: NavLink[] = [
     label: 'Resources',
     path: '/blogs',
     children: [
+      { label: 'Infrastructure', path: '/infrastructure' },
       { label: 'Health Check-ups', path: '/health-checkup' },
       { label: 'Physiotherapy', path: '/physiotherapy' },
       { label: 'Insurance & Schemes', path: '/government-schemes' },
@@ -45,7 +46,8 @@ export const FOOTER_LINKS: { title: string; links: NavLink[] }[] = [
       { label: 'About Us', path: '/about-us' },
       { label: 'Our Doctors', path: '/doctors' },
       { label: 'Our Specialities', path: '/specialities' },
-      { label: 'Health Check-ups', path: '/health-checkup' }
+      { label: 'Health Check-ups', path: '/health-checkup' },
+      { label: 'Infrastructure', path: '/infrastructure' }
     ]
   },
   {
@@ -68,13 +70,9 @@ export const HOSPITAL_STATS = [
 ];
 
 export const DIAGNOSTIC_FACILITIES = [
-  'MRI (1.5 Tesla)',
-  '16-Slice CT Scan',
-  'Mammography',
-  'Ultrasound & Colour Doppler',
-  'Digital X-Ray Systems',
-  'Clinical Biochemistry Laboratory',
-  'Histopathology & Cytopathology',
-  'Microbiology Services',
-  'Immunopathology Testing'
+  '64-Slice MRI',
+  '32-Slice CT Scan',
+  'Advanced & Mobile X-Ray Facilities',
+  'Advanced Echocardiography',
+  'Ultrasound Services'
 ];

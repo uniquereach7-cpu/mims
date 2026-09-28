@@ -1,12 +1,12 @@
 .intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(32px, 4vw, 72px);
+  grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
+  gap: clamp(36px, 5vw, 76px);
   align-items: start;
 }
 
 .intro__title {
-  font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.25rem);
+  font-size: clamp(1.8rem, 1.2rem + 1.8vw, 2.5rem);
   font-weight: 500;
   margin-bottom: 0;
 }
@@ -19,113 +19,244 @@
   background: var(--blue);
 }
 
-.intro__stats {
+.intro__actions {
   display: flex;
-  gap: 40px;
-  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
 }
 
-.intro__stats li {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding-right: 40px;
-  border-right: 1px solid var(--line);
+.model-card {
+  padding: clamp(28px, 3vw, 40px);
+  border-radius: var(--radius-lg);
+  background: var(--green-050);
+  border: 1px solid rgba(114, 175, 75, 0.18);
 }
 
-.intro__stats li:last-child {
-  border-right: 0;
-  padding-right: 0;
+.model-card h2 {
+  margin-bottom: 24px;
+  font-size: 1.45rem;
+  color: var(--blue-900);
 }
 
-.intro__stats strong {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.intro__stats .is-amber {
-  color: #c9962f;
-}
-.intro__stats .is-violet {
-  color: #7b6bd0;
-}
-
-.intro__stats span {
-  color: var(--ink);
-  line-height: 1.3;
-}
-
-.intro__aside img {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-  border-radius: var(--radius);
+.model-card .tick-list {
+  display: grid;
+  gap: 12px;
 }
 
 /* -------------------------------------------------- founder */
 
 .founder {
   position: relative;
-  background: var(--green);
-  padding-block: clamp(48px, 5vw, 88px);
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding-block: clamp(58px, 6vw, 96px);
+  background: var(--blue-900);
   overflow: hidden;
 }
 
 .founder::before {
   content: '';
   position: absolute;
-  left: -14%;
-  top: -40%;
-  width: 60%;
-  height: 180%;
+  width: 620px;
+  height: 620px;
+  right: -260px;
+  top: -300px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(114, 175, 75, 0.12);
 }
 
-.founder__inner {
+.founder__inner,
+.founder__details {
   position: relative;
   display: grid;
-  grid-template-columns: 340px minmax(0, 1fr);
-  gap: clamp(32px, 4vw, 72px);
-  align-items: center;
+  grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(36px, 5vw, 80px);
 }
 
-.founder__portrait {
-  margin: 0;
+.founder__identity {
   padding: 34px;
+  border-radius: var(--radius-lg);
   background: var(--white);
-  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
 }
 
-.founder__portrait img {
-  width: 100%;
-  border-radius: 50%;
-  background: var(--surface);
+.founder__eyebrow {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--green-600);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.founder__identity h2 {
+  margin-bottom: 12px;
+  color: var(--blue-900);
+}
+
+.founder__role {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.founder__dates {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.founder__copy h2,
+.founder__copy p,
+.founder__details h3,
+.founder__details li {
+  color: var(--white);
 }
 
 .founder__copy h2 {
-  color: var(--white);
-  font-weight: 400;
-  padding-bottom: 14px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  display: inline-block;
-}
-
-.founder__name {
-  display: block;
-  margin-top: 4px;
-  color: var(--blue-900);
-  font-weight: 600;
-  white-space: nowrap;
+  margin-bottom: 24px;
+  font-size: clamp(1.65rem, 1.1rem + 1.4vw, 2.25rem);
 }
 
 .founder__copy p {
-  color: rgba(255, 255, 255, 0.94);
+  color: rgba(255, 255, 255, 0.84);
 }
 
-/* -------------------------------------------------- facilities */
+.founder__details {
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.6fr);
+  margin-top: clamp(44px, 5vw, 72px);
+  padding-top: clamp(36px, 4vw, 54px);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.founder__details h3 {
+  margin-bottom: 22px;
+}
+
+.founder__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+}
+
+.founder__details > div:last-child .founder__list {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.founder__list li {
+  position: relative;
+  padding-left: 19px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.94rem;
+}
+
+.founder__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.67em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+/* -------------------------------------------------- leadership */
+
+.leadership-section {
+  background: linear-gradient(180deg, var(--white), var(--green-050));
+}
+
+.leadership-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.leadership-grid--primary {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.leadership-grid--board {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.leader-card {
+  position: relative;
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.leader-card__mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  background: var(--green-050);
+  color: var(--blue);
+}
+
+.leader-card h3 {
+  margin-bottom: 8px;
+}
+
+.leader-card p {
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.leader-card--compact {
+  padding: 26px;
+}
+
+.board-head {
+  margin-top: clamp(54px, 6vw, 86px);
+}
+
+/* -------------------------------------------------- accreditation / facilities */
+
+.accreditation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: clamp(36px, 5vw, 76px);
+  align-items: center;
+}
+
+.accreditation > div:first-child {
+  max-width: 740px;
+}
+
+.accreditation > div:first-child p {
+  margin-top: 18px;
+}
+
+.accreditation__badge {
+  display: grid;
+  place-items: center;
+  padding: 34px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  color: var(--blue);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.accreditation__badge strong {
+  margin-top: 12px;
+  color: var(--blue-900);
+  font-size: 1.7rem;
+}
+
+.accreditation__badge span {
+  font-size: 0.9rem;
+}
 
 .facility-grid {
   display: grid;
@@ -135,7 +266,6 @@
 
 .facility-grid li {
   display: flex;
-  text-wrap: balance;
   align-items: center;
   gap: 14px;
   padding: 20px 22px;
@@ -144,6 +274,7 @@
   border-radius: var(--radius);
   color: var(--ink);
   font-size: 0.98rem;
+  text-wrap: balance;
 }
 
 .facility-grid__icon {
@@ -157,7 +288,7 @@
   color: var(--blue);
 }
 
-/* -------------------------------------------------- vision / values */
+/* -------------------------------------------------- vision / values / trust */
 
 .vision {
   display: grid;
@@ -166,8 +297,8 @@
 }
 
 .vision h2 {
-  font-size: 1.6rem;
   margin-bottom: 14px;
+  font-size: 1.6rem;
 }
 
 .values-head {
@@ -178,53 +309,61 @@
   border-left: 3px solid var(--green);
 }
 
-/* -------------------------------------------------- services */
-
-.service-card img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
+.trust {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(36px, 6vw, 90px);
+  align-items: start;
 }
 
-.trust-list {
-  margin-top: 24px;
+.trust h2 + p {
+  margin-top: 18px;
 }
 
-.services__cta {
-  margin-top: 44px;
+.trust__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 30px;
 }
 
-@media (max-width: 1100px) {
-  .facility-grid {
+@media (max-width: 1050px) {
+  .facility-grid,
+  .leadership-grid--board {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 850px) {
   .intro,
+  .founder__inner,
+  .founder__details,
+  .accreditation,
+  .trust,
   .vision {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .founder__inner {
-    grid-template-columns: minmax(0, 1fr);
+  .founder__identity {
+    max-width: 520px;
   }
 
-  .founder__portrait {
-    max-width: 300px;
+  .accreditation__badge {
+    max-width: 280px;
   }
 }
 
 @media (max-width: 600px) {
-  .facility-grid {
+  .leadership-grid--primary,
+  .leadership-grid--board,
+  .facility-grid,
+  .founder__list,
+  .trust__list {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .intro__stats {
-    gap: 22px;
-  }
-
-  .intro__stats li {
-    padding-right: 22px;
+  .model-card,
+  .founder__identity,
+  .leader-card {
+    padding: 24px;
   }
 }

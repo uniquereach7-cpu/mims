@@ -54,6 +54,14 @@ export const routes: Routes = [
     title: 'Insurance & Government Schemes | MIMS Hospital'
   },
   {
+    path: 'infrastructure',
+    loadComponent: () =>
+      import('./infrastructure/infrastructure.component').then(
+        (m) => m.InfrastructureComponent
+      ),
+    title: 'Hospital Infrastructure & Facilities | MIMS Hospital'
+  },
+  {
     path: 'blogs',
     loadComponent: () => import('./blogs/blogs.component').then((m) => m.BlogsComponent),
     title: 'Health Blogs & Insights | MIMS Hospital'

@@ -12,95 +12,152 @@
   <div class="container">
     <div class="intro">
       <div>
+        <span class="eyebrow eyebrow--plain">Advancing Healthcare with Compassion and Excellence</span>
         <h1 class="intro__title">
-          Your Trusted Healthcare Partner for Comprehensive,
-          <span class="heading-accent">Advanced &amp; Personalised Care</span>
+          MIMS Hospital: <span class="heading-accent">A Trusted Name in Healthcare</span>
         </h1>
         <span class="intro__rule"></span>
         <p>
-          MIMS Hospital is a trusted name in delivering advanced and patient-centred healthcare.
-          With a strong foundation built on years of experience, we are committed to providing
-          high-quality medical services across a wide range of specialities. Our team of skilled
-          doctors, dedicated nursing staff, and healthcare professionals work together to ensure
-          accurate diagnosis, effective treatment, and compassionate care.
+          Maharajah’s Institute of Medical Sciences (MIMS Hospital) is a leading healthcare and
+          medical education institution in Nellimarla, Vizianagaram, Andhra Pradesh, established in
+          2003 under the aegis of the Sri Rama Educational Trust (SRET).
         </p>
         <p>
-          Maharajah’s Institute of Medical Sciences (MIMS Hospital) is one of the most respected
-          healthcare institutions in Vizianagaram, Andhra Pradesh. At MIMS, we believe that
-          healthcare should be accessible, affordable, and centred around the needs of every
-          patient. This philosophy guides everything we do, from routine consultations and
-          preventive health screenings to advanced surgeries and critical care services.
+          Serving communities across North Andhra and parts of Odisha for more than two decades,
+          MIMS brings together multispeciality and super-speciality healthcare, advanced
+          diagnostics, emergency and critical care, surgical and interventional services, medical
+          education, clinical training, research and community outreach.
         </p>
+        <p>
+          Its integrated campus encompasses a teaching hospital, medical college, nursing college,
+          nursing school and paramedical education institutes, supporting comprehensive healthcare
+          delivery alongside the education and training of future healthcare professionals.
+        </p>
+        <div class="intro__actions">
+          <a class="btn btn--blue" routerLink="/book-appointment">Book an Appointment</a>
+          <a class="btn btn--ghost" routerLink="/contact-us">Contact Us</a>
+        </div>
       </div>
 
-      <div class="intro__aside">
-        <ul class="intro__stats">
-          <li>
-            <strong class="is-amber">10+</strong>
-            <span>Centres of Excellence</span>
-          </li>
-          <li>
-            <strong class="is-violet">30+</strong>
-            <span>Insurance &amp; Schemes</span>
-          </li>
+      <aside class="model-card">
+        <h2>Our Integrated Healthcare Model</h2>
+        <ul class="tick-list">
+          @for (item of integratedModel; track item) {
+            <li>{{ item }}</li>
+          }
         </ul>
-        <img src="assets/images/building-wide.jpg" alt="MIMS Hospital, Nellimarla" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section--tight">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow eyebrow--plain">Our Story</span>
-      <h2>
-        Advancing Healthcare, Medical Education, and
-        <span class="heading-accent">Community Well‑being Since 2003</span>
-      </h2>
-    </div>
-
-    <div class="grid grid--3">
-      @for (item of story; track item.title) {
-        <article class="info-card">
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.text }}</p>
-        </article>
-      }
+      </aside>
     </div>
   </div>
 </section>
 
 <section class="founder">
   <div class="container founder__inner">
-    <figure class="founder__portrait">
-      <img src="assets/images/doctor-placeholder.png" alt="Dr. Alluri Murthy Raju, founder" />
-    </figure>
+    <div class="founder__identity">
+      <span class="founder__eyebrow">Our Founder</span>
+      <h2>Late Dr. Alluri Murthyraju</h2>
+      <p class="founder__role">Founder, Promoter and Former Chairman</p>
+      <p class="founder__dates">16 August 1935 – 03 August 2020</p>
+    </div>
+
     <div class="founder__copy">
-      <h2>
-        Inspired by a Visionary Leader
-        <span class="founder__name">Dr. A. Murthy Raju</span>
-      </h2>
+      <h2>A Visionary Dedicated to Education, Healthcare and Social Service</h2>
       <p>
-        The foundation of MIMS reflects the vision and dedication of founder Dr. Alluri Murthy Raju,
-        an eminent industrialist, educationist, philanthropist, and visionary leader. Under his
-        guidance, Sri Rama Educational Trust established MIMS with the goal of creating a world-class
-        institution that combines exceptional medical education with accessible, patient-centred
-        healthcare.
+        The foundation of MIMS is closely associated with the vision of Late Dr. Alluri
+        Murthyraju, an industrialist, educationist, philanthropist and social worker who dedicated
+        much of his life to institution-building and support for the less privileged.
       </p>
       <p>
-        Today, MIMS continues to build on this legacy by investing in modern infrastructure,
-        advanced medical technology, clinical excellence, and community service, strengthening its
-        position as a trusted healthcare and medical education destination in Andhra Pradesh.
+        Driven by a strong commitment to social development, he envisioned institutions that could
+        create opportunities in education, healthcare and community development. His elder brother,
+        Mr. Satyanarayana Raju, and his contributions to the freedom movement, public life and
+        social service were an important source of inspiration.
       </p>
+    </div>
+  </div>
+
+  <div class="container founder__details">
+    <div>
+      <h3>Institutions and Organisations Associated with His Leadership</h3>
+      <ul class="founder__list">
+        @for (item of founderInstitutions; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </div>
+    <div>
+      <h3>Awards and Recognition</h3>
+      <ul class="founder__list">
+        @for (item of founderAwards; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section leadership-section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow eyebrow--plain">Continuing the Vision</span>
+      <h2>Our <span class="heading-accent">Leadership</span></h2>
+      <p>
+        Guided by a shared vision, our leadership team continues to strengthen MIMS’s commitment
+        to healthcare, medical education and service to the community.
+      </p>
+    </div>
+
+    <div class="leadership-grid leadership-grid--primary">
+      @for (person of leadership; track person.name) {
+        <article class="leader-card">
+          <span class="leader-card__mark" aria-hidden="true"><app-icon name="users" [size]="24" /></span>
+          <h3>{{ person.name }}</h3>
+          <p>{{ person.role }}</p>
+        </article>
+      }
+    </div>
+
+    <div class="section-head board-head">
+      <h2>Our Board of Directors</h2>
+      <p>
+        MIMS Hospital is supported by a leadership team committed to carrying forward the
+        institution’s vision and strengthening its healthcare and educational initiatives.
+      </p>
+    </div>
+
+    <div class="leadership-grid leadership-grid--board">
+      @for (person of trustees; track person.name) {
+        <article class="leader-card leader-card--compact">
+          <h3>{{ person.name }}</h3>
+          <p>{{ person.role }}</p>
+        </article>
+      }
     </div>
   </div>
 </section>
 
 <section class="section section--surface">
+  <div class="container accreditation">
+    <div>
+      <span class="eyebrow eyebrow--plain">Accreditations, Affiliations &amp; Recognition</span>
+      <h2>NABH Entry-Level <span class="heading-accent">Accreditation</span></h2>
+      <p>
+        MIMS continues to carry its founder’s vision forward by strengthening healthcare
+        infrastructure, medical education, specialist services and community-oriented healthcare.
+      </p>
+    </div>
+    <div class="accreditation__badge">
+      <app-icon name="award" [size]="38" />
+      <strong>NABH</strong>
+      <span>Entry-Level Accredited</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="container">
     <div class="section-head section-head--center">
-      <h2>Integrated Healthcare <span class="heading-accent">Under One Roof</span></h2>
+      <h2>Integrated Multi-Speciality and Super-Speciality Healthcare <span class="heading-accent">Under One Roof</span></h2>
     </div>
 
     <ul class="facility-grid">
@@ -114,7 +171,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section section--surface">
   <div class="container">
     <div class="vision">
       <article class="panel panel--blue">
@@ -128,10 +185,11 @@
       <article class="panel panel--green">
         <h2>Our Mission</h2>
         <p>
-          To deliver compassionate, evidence-based healthcare through clinical excellence, advanced
-          technology, continuous learning, and patient-centred practices. We are committed to
-          nurturing future healthcare professionals, advancing medical research, promoting community
-          well-being, and ensuring accessible, high-quality care for every patient.
+          To deliver compassionate, evidence-based healthcare through clinical excellence,
+          advanced technology, continuous learning and patient-centred practices. We are committed
+          to nurturing future healthcare professionals, advancing medical research, promoting
+          community well-being and making high-quality healthcare accessible to the communities we
+          serve.
         </p>
       </article>
     </div>
@@ -151,57 +209,30 @@
   </div>
 </section>
 
-<section class="section section--surface">
-  <div class="container">
-    <div class="section-head section-head--center">
-      <h2>
-        <span class="heading-accent">Our Services:</span> Comprehensive Care You Can Trust
-      </h2>
+<section class="section">
+  <div class="container trust">
+    <div>
+      <span class="eyebrow eyebrow--plain">Why MIMS</span>
+      <h2>Trusted by Families <span class="heading-accent">Across Andhra Pradesh</span></h2>
       <p>
-        We offer a wide range of medical services designed to deliver quality care, accurate
-        diagnosis, and effective treatment for every patient.
+        For more than two decades, MIMS has combined specialist expertise, advanced facilities and
+        accessible healthcare for the communities it serves.
       </p>
     </div>
-
-    <div class="grid grid--4">
-      @for (service of services; track service.title) {
-        <article class="card service-card">
-          <img [src]="service.image" [alt]="service.title" />
-          <div class="card__body">
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.text }}</p>
-          </div>
-        </article>
+    <ul class="tick-list trust__list">
+      @for (point of trustPoints; track point) {
+        <li>{{ point }}</li>
       }
-    </div>
-
-    <div class="text-center services__cta">
-      <a class="btn btn--blue" routerLink="/specialities">
-        Explore Our Specialities
-        <span class="btn__arrow" aria-hidden="true">
-          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-        </span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container split split--wide-left">
-    <div>
-      <h2>Why MIMS Hospital is <span class="heading-accent">Trusted by Families Across Andhra Pradesh</span></h2>
-      <ul class="tick-list trust-list">
-        @for (point of trustPoints; track point) {
-          <li>{{ point }}</li>
-        }
-      </ul>
-    </div>
-    <img src="assets/images/care-hands.jpg" alt="Clinician caring for a patient at MIMS Hospital" />
+    </ul>
   </div>
 </section>
 
 <app-cta-band
-  heading="Here to support your health and well‑being"
+  heading="Here to support your health and well-being"
   text="Whether you require preventive care, specialist consultation, advanced treatment, or emergency medical services, MIMS Hospital is here for you."
+  primaryLabel="Book an Appointment"
+  primaryLink="/book-appointment"
+  secondaryLabel="Contact Us"
+  secondaryLink="/contact-us"
   tone="green"
 />
