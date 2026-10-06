@@ -1,0 +1,33 @@
+# Deploy at the mimshospitals.com document root. Install a valid SSL certificate first.
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+
+RewriteEngine On
+
+# Exempt certificate verification files from redirects and Angular routing.
+RewriteRule ^\.well-known/ - [L]
+
+# Enforce HTTPS on the production domain; 308 preserves POST form bodies.
+RewriteCond %{HTTP_HOST} ^(www\.)?mimshospitals\.com$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://mimshospitals.com%{REQUEST_URI} [R=308,L]
+
+# Real assets, prerendered page directories and PHP handlers are served normally.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Missing API endpoints and assets must NOT return the Angular HTML shell.
+RewriteRule ^(?:api|assets)/ - [R=404,L]
+RewriteRule \.(?:js|css|map|png|jpe?g|gif|webp|svg|ico|woff2?|php)$ - [R=404,L,NC]
+
+# Angular client-side routes, including /specialities/:slug, work on refresh.
+RewriteRule ^ index.html [L]
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

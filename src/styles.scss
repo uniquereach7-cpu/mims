@@ -3,6 +3,18 @@
    Derived from the approved design (src/assets/design/*.pdf)
    ========================================================================== */
 
+.form-trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-notice { font-size: 0.85rem; }
+.form-submit-error { color: #8c1722; background: #fff2f2; padding: 12px; border-radius: 8px; }
+.btn:disabled { opacity: 0.65; cursor: wait; }
+
 :root {
   /* Brand */
   --blue: #2c6285;

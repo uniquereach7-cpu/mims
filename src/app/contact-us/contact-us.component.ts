@@ -1,6 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { PLATFORM_ID } from '@angular/core';
+import { sendForm } from '../core/form-mail';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { PageHeroComponent } from '../shared/page-hero/page-hero.component';
@@ -16,15 +15,17 @@ import { SITE } from '../core/data/site';
 })
 export class ContactUsComponent {
   private readonly fb = inject(FormBuilder);
-  private readonly platformId = inject(PLATFORM_ID);
 
   readonly site = SITE;
   readonly sent = signal(false);
+  readonly sending = signal(false);
+  readonly error = signal('');
 
   readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
-    message: ['', [Validators.required, Validators.minLength(10)]]
+    message: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(5000)]],
+    website: ['']
   });
 
   readonly cards = [
@@ -38,22 +39,23 @@ export class ContactUsComponent {
     return field.invalid && (field.dirty || field.touched);
   }
 
-  submit(): void {
+  async submit(): Promise<void> {
+    if (this.sending()) return;
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
 
-    const { name, email, message } = this.form.getRawValue();
-    // No enquiry backend is wired up yet, so hand the message to the visitor's
-    // mail client addressed to the hospital's published enquiry inbox.
-    const subject = encodeURIComponent(`Website enquiry from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n--\n${name}\n${email}`);
-
-    if (isPlatformBrowser(this.platformId)) {
-      window.location.href = `${SITE.emailHref}?subject=${subject}&body=${body}`;
+    this.sending.set(true);
+    this.error.set('');
+    try {
+      await sendForm('contact', this.form.getRawValue());
+      this.sent.set(true);
+    } catch (error) {
+      this.error.set(error instanceof Error && error.name !== 'TimeoutError'
+        ? error.message : 'We could not confirm your submission. Please call the hospital.');
+    } finally {
+      this.sending.set(false);
     }
-
-    this.sent.set(true);
   }
 }

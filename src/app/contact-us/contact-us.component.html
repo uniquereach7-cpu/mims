@@ -30,20 +30,21 @@
   <div class="container enquiry">
     <div class="panel panel--green enquiry__form">
       @if (sent()) {
-        <h2>Thanks, {{ form.controls.name.value }}.</h2>
+        <h2 role="status">Thanks, {{ form.controls.name.value }}.</h2>
         <p>
-          We have opened an email addressed to <strong>{{ site.email }}</strong> with your message.
-          Send it and our team will get back to you as soon as possible.
+          Your enquiry has been submitted. Our team will get back to you as soon as possible.
         </p>
         <p class="enquiry__fallback">
-          If your mail client did not open, call us on
-          <a [href]="site.phoneHref">{{ site.phone }}</a> instead.
+          For urgent assistance, call <a [href]="site.phoneHref">{{ site.phone }}</a>.
         </p>
       } @else {
         <h2>Still Have Questions?</h2>
         <p>Fill out the form below and our team will get back to you shortly.</p>
 
         <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <label class="form-trap" aria-hidden="true">Leave this field empty
+            <input type="text" formControlName="website" tabindex="-1" autocomplete="off" />
+          </label>
           <label class="field" [class.field--error]="invalid('name')">
             <span>Name</span>
             <input type="text" formControlName="name" autocomplete="name" />
@@ -62,13 +63,15 @@
 
           <label class="field" [class.field--error]="invalid('message')">
             <span>Message</span>
-            <textarea formControlName="message" placeholder="Type your message…"></textarea>
+            <textarea formControlName="message" maxlength="5000" placeholder="Type your message…"></textarea>
             @if (invalid('message')) {
               <small class="field__error">Please tell us a little more (at least 10 characters).</small>
             }
           </label>
 
-          <button type="submit" class="btn btn--blue btn--plain">Submit</button>
+          <p class="form-notice">Please do not include medical reports or sensitive personal details.</p>
+          @if (error()) { <p role="alert" class="form-submit-error">{{ error() }}</p> }
+          <button type="submit" class="btn btn--blue btn--plain" [disabled]="sending()" [attr.aria-busy]="sending()">{{ sending() ? 'Sending…' : 'Submit' }}</button>
         </form>
       }
     </div>

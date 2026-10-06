@@ -23,10 +23,9 @@
       <div class="booking__form">
         @if (sent()) {
           <div class="booking__done">
-            <h2>Request ready to send</h2>
+            <h2 role="status">Appointment request submitted</h2>
             <p>
-              We have opened an email addressed to <strong>{{ site.email }}</strong> with your
-              appointment details. Send it and our team will confirm your slot.
+              Our team will contact you to confirm availability. This request is not a confirmed appointment.
             </p>
             <p>
               For a same-day appointment, please call
@@ -36,6 +35,9 @@
         } @else {
           <h2>Appointment Booking Form</h2>
           <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <label class="form-trap" aria-hidden="true">Leave this field empty
+              <input type="text" formControlName="website" tabindex="-1" autocomplete="off" />
+            </label>
             <div class="booking__row">
               <label class="field" [class.field--error]="invalid('name')">
                 <span>Name</span>
@@ -76,11 +78,13 @@
 
             <label class="field">
               <span>Message</span>
-              <textarea formControlName="message" placeholder="Tell us briefly about your concern…"></textarea>
+              <textarea formControlName="message" maxlength="5000" placeholder="Tell us briefly about your concern…"></textarea>
             </label>
 
-            <button type="submit" class="btn btn--blue">
-              Submit Request
+            <p class="form-notice">Please do not include medical reports or sensitive personal details.</p>
+            @if (error()) { <p role="alert" class="form-submit-error">{{ error() }}</p> }
+            <button type="submit" class="btn btn--blue" [disabled]="sending()" [attr.aria-busy]="sending()">
+              {{ sending() ? 'Sending…' : 'Submit Request' }}
               <span class="btn__arrow" aria-hidden="true">
                 <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
               </span>
