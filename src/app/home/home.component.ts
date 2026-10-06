@@ -41,6 +41,22 @@ export class HomeComponent implements OnInit, OnDestroy {
   readonly posts = BLOG_POSTS.slice(0, 4);
 
   readonly featuredSpecialities = SPECIALITIES;
+  readonly specialityPages = Array.from({ length: Math.ceil(SPECIALITIES.length / 6) },
+    (_, index) => {
+      const start = Math.min(index * 6, Math.max(0, SPECIALITIES.length - 6));
+      return SPECIALITIES.slice(start, start + 6);
+    });
+  readonly specialityPage = signal(0);
+
+  scrollSpecialities(track: HTMLElement, page: number): void {
+    const target = Math.max(0, Math.min(this.specialityPages.length - 1, page));
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    track.scrollTo({ left: target * track.clientWidth, behavior: reducedMotion ? 'instant' : 'smooth' });
+  }
+
+  updateSpecialityPage(track: HTMLElement): void {
+    this.specialityPage.set(Math.round(track.scrollLeft / track.clientWidth));
+  }
 
   readonly featuredDoctors = ['General Medicine', 'General Surgery', 'Paediatrics', 'E.N.T.']
     .map(

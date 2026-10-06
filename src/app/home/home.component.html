@@ -123,44 +123,53 @@
 </section>
 
 <!-- ============================ SPECIALITIES ============================ -->
-<section class="excellence">
-  <div class="excellence__panel">
-    <div class="excellence__panel-inner">
-      <h2>
-        Our <span class="heading-accent--blue">Centres of Excellence</span>: comprehensive
-        healthcare across multiple specialities.
-      </h2>
+<section class="section excellence" aria-labelledby="speciality-heading">
+  <div class="container">
+    <div class="excellence__intro">
+      <div>
+      <p class="eyebrow">General &amp; Super Specialities</p>
+      <h2 id="speciality-heading">Our <span class="heading-accent">Centres of Excellence</span></h2>
       <p>
         MIMS Hospital offers a full spectrum of medical and surgical services supported by
         dedicated inpatient facilities, specialised clinics, modern operation theatres, and advanced
         diagnostic services.
       </p>
-      <a class="btn btn--white" routerLink="/specialities">
+      </div>
+      <a class="btn btn--blue" routerLink="/specialities">
         View all Specialities
         <span class="btn__arrow" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
         </span>
       </a>
     </div>
-  </div>
-
-  <div class="excellence__browse">
-    <div class="excellence__browse-head">
-      <span>General &amp; Super Specialities</span>
-      <span class="excellence__hint">Scroll to explore &rarr;</span>
+    <div class="excellence__toolbar">
+      <span aria-live="polite">{{ specialityPage() === specialityPages.length - 1 ? featuredSpecialities.length - 5 : specialityPage() * 6 + 1 }}–{{ specialityPage() === specialityPages.length - 1 ? featuredSpecialities.length : (specialityPage() + 1) * 6 }} of {{ featuredSpecialities.length }} specialities</span>
+      <div class="excellence__controls">
+        <button type="button" aria-label="Previous specialities" aria-controls="speciality-track" [disabled]="specialityPage() === 0" (click)="scrollSpecialities(specialityTrack, specialityPage() - 1)">←</button>
+        <button type="button" aria-label="Next specialities" aria-controls="speciality-track" [disabled]="specialityPage() === specialityPages.length - 1" (click)="scrollSpecialities(specialityTrack, specialityPage() + 1)">→</button>
+      </div>
     </div>
-  <div class="excellence__grid" tabindex="0" role="region" aria-label="Browse all medical specialities">
-    @for (spec of featuredSpecialities; track spec.slug; let i = $index) {
+    <div #specialityTrack id="speciality-track" class="excellence__track" tabindex="0" role="region" aria-label="Browse all medical specialities" (scroll)="updateSpecialityPage(specialityTrack)">
+    @for (page of specialityPages; track $index) {
+      <div class="excellence__grid">
+      @for (spec of page; track spec.slug) {
       <a class="spec-card" [routerLink]="['/specialities', spec.slug]">
         <span class="spec-card__icon"><app-icon [name]="spec.icon" [size]="26" /></span>
         <h3>{{ spec.name }}</h3>
         <p>{{ spec.blurb }}</p>
-        <span class="spec-card__go" [class.is-green]="i % 2 === 1" aria-hidden="true">
+        <span class="spec-card__go" aria-hidden="true">
           <svg width="13" height="13" viewBox="0 0 14 14"><path d="M2 7h9M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
         </span>
       </a>
+      }
+      </div>
     }
-  </div>
+    </div>
+    <div class="excellence__pagination" aria-label="Speciality pages">
+      @for (page of specialityPages; track $index; let i = $index) {
+        <button type="button" [attr.aria-label]="'Show speciality page ' + (i + 1)" [attr.aria-current]="specialityPage() === i ? 'true' : null" [class.is-active]="specialityPage() === i" (click)="scrollSpecialities(specialityTrack, i)"><span></span></button>
+      }
+    </div>
   </div>
 </section>
 

@@ -281,125 +281,137 @@
 /* ---------------------------------------------------------------- SPECIALITIES */
 
 .excellence {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  background: var(--surface);
 }
 
-.excellence__panel {
-  position: relative;
-  background: var(--green);
+.excellence__intro {
   display: flex;
   align-items: center;
-  padding: clamp(48px, 6vw, 96px) clamp(24px, 4vw, 72px);
-  overflow: hidden;
-}
-
-.excellence__panel::before {
-  content: '';
-  position: absolute;
-  left: -22%;
-  top: -30%;
-  width: 90%;
-  height: 160%;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.07);
-}
-
-.excellence__panel-inner {
-  position: relative;
-  max-width: 520px;
-  margin-left: auto;
-}
-
-.excellence__panel h2 {
-  color: var(--white);
-  font-weight: 400;
-  margin-bottom: 18px;
-}
-
-.excellence__panel p {
-  color: rgba(255, 255, 255, 0.92);
+  justify-content: space-between;
+  gap: 36px;
   margin-bottom: 28px;
 }
 
-.excellence__browse {
-  min-width: 0;
-  padding: 32px 0;
-  background: var(--surface);
+.excellence__intro > div {
+  max-width: 760px;
 }
 
-.excellence__browse-head {
+.excellence__intro .btn {
+  flex-shrink: 0;
+}
+
+.excellence__intro h2 {
+  margin-bottom: 14px;
+  text-wrap: balance;
+}
+
+.excellence__intro p:last-child {
+  margin-bottom: 0;
+}
+
+.excellence__toolbar {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 0 32px 24px;
+  gap: 16px;
+  margin-bottom: 16px;
   color: var(--blue-900);
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
 }
 
-.excellence__hint {
-  font-size: 0.85rem;
-  font-weight: 400;
+.excellence__controls {
+  display: flex;
+  gap: 8px;
+}
+
+.excellence__controls button {
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--blue);
+  border-radius: 50%;
+  background: var(--blue);
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.excellence__controls button:hover:not(:disabled) {
+  background: var(--blue-900);
+}
+
+.excellence__controls button:disabled {
+  background: white;
+  color: var(--body);
+  border-color: var(--line);
+  cursor: default;
+}
+
+.excellence__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue) var(--surface);
+  padding-bottom: 12px;
 }
 
 .excellence__grid {
+  flex: 0 0 100%;
+  min-width: 0;
   display: grid;
-  grid-template-columns: none;
-  grid-template-rows: repeat(2, auto);
-  grid-auto-flow: column;
-  grid-auto-columns: 80%;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: x proximity;
-  scrollbar-color: var(--blue) var(--surface);
-  padding-bottom: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-content: start;
+  scroll-snap-align: start;
 }
 
 .spec-card {
-  scroll-snap-align: start;
   position: relative;
   display: block;
-  padding: 42px 38px 78px;
-  background: var(--surface);
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  transition: background 0.25s ease;
-}
-
-.spec-card:nth-child(2n) {
-  background: #fafbfb;
+  padding: 24px 24px 28px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .spec-card:hover {
-  background: var(--white);
+  background: var(--green-050);
+  border-color: var(--green);
 }
 
 .spec-card__icon {
   display: grid;
   place-items: center;
-  width: 54px;
-  height: 54px;
-  margin-bottom: 24px;
-  border-radius: 50%;
-  background: var(--white);
+  width: 46px;
+  height: 46px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  background: var(--green-050);
   color: var(--blue);
-  box-shadow: var(--shadow-sm);
 }
 
 .spec-card h3 {
   margin-bottom: 8px;
+  padding-right: 22px;
+  font-size: 1.15rem;
+  line-height: 1.35;
 }
 
 .spec-card p {
   color: var(--body);
   max-width: 26em;
+  margin-bottom: 0;
+  font-size: 0.95rem;
 }
 
 .spec-card__go {
   position: absolute;
-  right: 38px;
-  bottom: 34px;
+  right: 24px;
+  top: 30px;
   display: grid;
   place-items: center;
   width: 34px;
@@ -409,8 +421,40 @@
   color: var(--white);
 }
 
-.spec-card__go.is-green {
-  background: var(--green);
+.excellence__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.excellence__pagination button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.excellence__pagination span {
+  width: 20px;
+  height: 5px;
+  border-radius: 10px;
+  background: #c8d4d9;
+}
+
+.excellence__pagination .is-active span {
+  background: var(--blue);
+  width: 32px;
+}
+
+.excellence button:focus-visible,
+.excellence__track:focus-visible,
+.spec-card:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: -3px;
 }
 
 /* ---------------------------------------------------------------- WHY CHOOSE */
@@ -716,13 +760,10 @@
     gap: 40px;
   }
 
-  .excellence {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .excellence__panel-inner {
-    margin-left: 0;
-    max-width: none;
+  .excellence__intro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .stats {
@@ -811,8 +852,28 @@
   }
 
   .excellence__grid {
-    grid-template-columns: none;
-    grid-auto-columns: 86%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .spec-card {
+    padding: 16px;
+  }
+
+  .spec-card h3 {
+    font-size: 1rem;
+    padding-right: 0;
+  }
+
+  .spec-card p {
+    font-size: 0.85rem;
+  }
+
+  .spec-card__go {
+    right: 14px;
+    top: 20px;
+    width: 24px;
+    height: 24px;
   }
 
   .stats {
