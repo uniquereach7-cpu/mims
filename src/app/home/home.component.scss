@@ -208,7 +208,11 @@
 }
 
 .about__copy .btn {
+  justify-self: start;
+  width: fit-content;
+  max-width: 100%;
   margin-top: 12px;
+  white-space: nowrap;
 }
 
 /* stat bubbles */
@@ -756,6 +760,10 @@
   .about__stat {
     max-width: 78%;
     padding: 20px 26px;
+  }
+
+  .about__copy .btn {
+    white-space: normal;
   }
 
   .why__grid {

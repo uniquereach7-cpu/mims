@@ -65,12 +65,14 @@
 
 .capacity-panel {
   padding: clamp(30px, 4vw, 48px);
+  border: 1px solid rgba(111, 170, 70, 0.18);
   border-radius: var(--radius-lg);
-  background: var(--green-050);
+  background: linear-gradient(145deg, #f1f7eb 0%, #e4efd9 100%);
 }
 
 .capacity-panel--blue {
-  background: var(--blue-900);
+  border-color: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(145deg, var(--blue-900) 0%, var(--blue-700) 100%);
 }
 
 .capacity-panel__icon {
@@ -107,15 +109,19 @@
   gap: 12px;
   padding: 14px 16px;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.55);
-  color: var(--ink);
+  border: 1px solid rgba(39, 87, 119, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--blue-900);
 }
 
 .capacity-panel--blue li {
-  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.13);
+  color: var(--white);
 }
 
 .capacity-panel li strong {
+  color: inherit;
   white-space: nowrap;
 }
 
@@ -154,12 +160,12 @@
 
 .specialised__list {
   display: grid;
-  gap: 24px;
+  gap: 28px;
 }
 
 .facility-card {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+  grid-template-columns: minmax(0, 1fr);
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -167,13 +173,8 @@
   box-shadow: var(--shadow-sm);
 }
 
-.facility-card--reverse .facility-card__summary {
-  order: 2;
-}
-
-.facility-card__summary,
-.facility-card__doctors {
-  padding: clamp(28px, 4vw, 48px);
+.facility-card__summary {
+  padding: clamp(28px, 3.2vw, 42px);
 }
 
 .facility-card__icon {
@@ -194,20 +195,22 @@
 
 .facility-card__summary .tick-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 8px 24px;
   margin-top: 20px;
 }
 
 .facility-card__doctors {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: var(--blue-900);
+  display: grid;
+  grid-template-columns: minmax(140px, 0.24fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 28px;
+  padding: 26px clamp(28px, 3.2vw, 42px);
+  background: linear-gradient(110deg, var(--blue-900), var(--blue-700));
 }
 
 .facility-card__label {
-  margin-bottom: 22px;
+  padding-top: 3px;
   color: var(--green);
   font-size: 0.8rem;
   font-weight: 700;
@@ -215,10 +218,21 @@
   text-transform: uppercase;
 }
 
-.doctor-profile + .doctor-profile {
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+.facility-card__doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px 0;
+}
+
+.doctor-profile {
+  min-width: 0;
+  padding-inline: 26px;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.doctor-profile:first-child {
+  padding-left: 0;
+  border-left: 0;
 }
 
 .doctor-profile h4 {
@@ -248,13 +262,13 @@
 
 @media (max-width: 850px) {
   .overview,
-  .capacity-grid,
-  .facility-card {
+  .capacity-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .facility-card--reverse .facility-card__summary {
-    order: initial;
+  .facility-card__doctors {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
 
   .bed-grid {
@@ -280,5 +294,20 @@
   .theatre-strip article {
     justify-content: flex-start;
     min-height: 100px;
+  }
+
+  .facility-card__doctor-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .doctor-profile,
+  .doctor-profile:first-child {
+    padding: 0;
+    border-left: 0;
+  }
+
+  .doctor-profile + .doctor-profile {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
   }
 }

@@ -92,8 +92,8 @@
     </div>
 
     <div class="specialised__list">
-      @for (facility of specialisedFacilities; track facility.title; let i = $index) {
-        <article class="facility-card" [class.facility-card--reverse]="i % 2 === 1">
+      @for (facility of specialisedFacilities; track facility.title) {
+        <article class="facility-card">
           <div class="facility-card__summary">
             <span class="facility-card__icon"><app-icon [name]="facility.icon" [size]="28" /></span>
             <h3>{{ facility.title }}</h3>
@@ -107,13 +107,15 @@
 
           <div class="facility-card__doctors">
             <span class="facility-card__label">Specialist Team</span>
-            @for (doctor of facility.doctors; track doctor.name) {
-              <div class="doctor-profile">
-                <h4>{{ doctor.name }}</h4>
-                <p>{{ doctor.qualifications }}</p>
-                <small>{{ doctor.role }}</small>
-              </div>
-            }
+            <div class="facility-card__doctor-grid">
+              @for (doctor of facility.doctors; track doctor.name) {
+                <div class="doctor-profile">
+                  <h4>{{ doctor.name }}</h4>
+                  <p>{{ doctor.qualifications }}</p>
+                  <small>{{ doctor.role }}</small>
+                </div>
+              }
+            </div>
           </div>
         </article>
       }
