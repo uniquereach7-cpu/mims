@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { PageHeroComponent } from '../shared/page-hero/page-hero.component';
 import { CtaBandComponent } from '../shared/cta-band/cta-band.component';
 import { IconComponent } from '../shared/icon/icon.component';
+import { DIAGNOSTIC_FACILITIES } from '../core/data/site';
 
 @Component({
   selector: 'app-infrastructure',
@@ -12,6 +13,51 @@ import { IconComponent } from '../shared/icon/icon.component';
   styleUrl: './infrastructure.component.scss'
 })
 export class InfrastructureComponent {
+  readonly diagnostics = DIAGNOSTIC_FACILITIES;
+
+  readonly rooms = [
+    {
+      name: 'Single Rooms',
+      title: 'Private Accommodation for Greater Privacy & Convenience',
+      amenities: [
+        'Private room designed to provide greater personal space and privacy',
+        'Dedicated patient bed with essential bedside facilities',
+        'Convenient arrangements for attendants',
+        'Comfortable and well-organised environment for recovery'
+      ]
+    },
+    {
+      name: 'Sharing Rooms',
+      title: 'Practical Shared Accommodation for Patient Comfort',
+      amenities: [
+        'Shared accommodation with dedicated patient beds',
+        'Essential bedside facilities for routine patient requirements',
+        'Well-planned space for patients and attendants',
+        'Comfortable environment during the hospital stay'
+      ]
+    },
+    {
+      name: 'Deluxe Rooms',
+      title: 'Enhanced Accommodation with Added Comfort & Convenience',
+      amenities: [
+        'Spacious room designed for enhanced patient comfort',
+        'Dedicated patient area with attendant seating',
+        'Essential bedside and medical utility facilities',
+        'Well-organised environment to support a comfortable stay'
+      ]
+    },
+    {
+      name: 'Suite Rooms',
+      title: 'Spacious Private Accommodation for Enhanced Comfort & Privacy',
+      amenities: [
+        'Spacious private accommodation offering greater comfort and privacy',
+        'Dedicated patient area with convenient attendant seating',
+        'In-room amenities for added convenience during the stay',
+        'Calm and well-organised environment for patients and attendants'
+      ]
+    }
+  ];
+
   readonly teachingBeds = [
     { department: 'Medicine', beds: 180 },
     { department: 'Surgery', beds: 150 },

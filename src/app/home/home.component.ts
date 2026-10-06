@@ -38,12 +38,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   readonly stats = HOSPITAL_STATS;
   readonly facilities = DIAGNOSTIC_FACILITIES;
   readonly testimonials = TESTIMONIALS;
-  readonly posts = BLOG_POSTS.slice(0, 3);
+  readonly posts = BLOG_POSTS.slice(0, 4);
 
-  /** The four cards the design puts beside the green panel. */
-  readonly featuredSpecialities = SPECIALITIES.filter((s) =>
-    ['general-medicine', 'general-surgery', 'paediatrics', 'ophthalmology'].includes(s.slug)
-  );
+  readonly featuredSpecialities = SPECIALITIES;
 
   readonly featuredDoctors = ['General Medicine', 'General Surgery', 'Paediatrics', 'E.N.T.']
     .map(

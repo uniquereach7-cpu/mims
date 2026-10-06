@@ -74,10 +74,18 @@
     </div>
 
     <div class="enquiry__aside">
-      <a class="enquiry__map" [href]="site.mapUrl" target="_blank" rel="noopener">
-        <img src="assets/images/map.jpg" alt="Map showing MIMS Hospital in Nellimarla, Vizianagaram" />
-        <span>Open in Google Maps</span>
-      </a>
+      <div class="enquiry__map">
+        <iframe
+          title="Find MIMS Hospital in Nellimarla, Vizianagaram on Google Maps"
+          src="https://www.google.com/maps?q=Maharajah%27s%20Institute%20of%20Medical%20Sciences%20Nellimarla%20Vizianagaram&amp;output=embed"
+          width="600"
+          height="340"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+        <a [href]="site.mapUrl" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
+      </div>
 
       <div class="visit">
         <h3>Visit Us</h3>

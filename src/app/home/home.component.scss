@@ -322,12 +322,42 @@
   margin-bottom: 28px;
 }
 
+.excellence__browse {
+  min-width: 0;
+  padding: 32px 0;
+  background: var(--surface);
+}
+
+.excellence__browse-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 32px 24px;
+  color: var(--blue-900);
+  font-weight: 600;
+}
+
+.excellence__hint {
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
 .excellence__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: none;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: 80%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-color: var(--blue) var(--surface);
+  padding-bottom: 16px;
 }
 
 .spec-card {
+  scroll-snap-align: start;
   position: relative;
   display: block;
   padding: 42px 38px 78px;
@@ -597,7 +627,16 @@
 /* ---------------------------------------------------------------- BLOGS */
 
 .blogs__title {
-  margin-bottom: 40px;
+  margin-bottom: 18px;
+}
+
+.blogs__intro {
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+.blogs__actions {
+  margin-top: 36px;
 }
 
 .blog-card {
@@ -772,7 +811,8 @@
   }
 
   .excellence__grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: none;
+    grid-auto-columns: 86%;
   }
 
   .stats {

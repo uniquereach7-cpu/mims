@@ -34,8 +34,9 @@
       <span class="eyebrow eyebrow--plain">Hospital Facilities &amp; Bed Strength</span>
       <h2><span class="heading-accent">880+</span> Existing Teaching Beds</h2>
       <p>
-        MIMS Hospital has a broad bed capacity across key clinical departments, supporting
-        comprehensive patient care across multiple specialities.
+        MIMS Hospital has a broad bed capacity across key clinical departments, supported by
+        dedicated facilities for emergency care, critical care, patient accommodation,
+        diagnostics and surgical services.
       </p>
     </div>
 
@@ -81,6 +82,48 @@
         <span>{{ item.label }}</span>
       </article>
     }
+  </div>
+</section>
+
+<section class="section section--surface accommodation-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow eyebrow--plain">Patient Rooms &amp; Accommodation</span>
+      <h2>Comfortable Accommodation Designed for <span class="heading-accent">Privacy, Convenience &amp; Recovery</span></h2>
+      <p>
+        MIMS Hospital offers thoughtfully planned patient rooms and accommodation in Vizianagaram,
+        with options designed to support patient comfort, privacy and attendant convenience during
+        treatment and recovery. The hospital provides Single, Sharing, Deluxe and Suite Rooms,
+        offering different levels of space and privacy to meet varied patient requirements.
+      </p>
+    </div>
+    <div class="grid grid--2 room-grid">
+      @for (room of rooms; track room.name) {
+        <article class="info-card room-card">
+          <span class="eyebrow eyebrow--plain">{{ room.name }}</span>
+          <h3>{{ room.title }}</h3>
+          <ul class="tick-list">
+            @for (amenity of room.amenities; track amenity) {
+              <li>{{ amenity }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container diagnostic-facilities">
+    <div>
+      <span class="eyebrow eyebrow--plain">Advanced Diagnostic Facilities</span>
+      <h2>Modern Imaging for <span class="heading-accent">Precise Diagnosis</span></h2>
+    </div>
+    <ul class="diagnostic-facilities__list">
+      @for (facility of diagnostics; track facility) {
+        <li><app-icon name="microscope" [size]="22" /><span>{{ facility }}</span></li>
+      }
+    </ul>
   </div>
 </section>
 
