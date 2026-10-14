@@ -74,7 +74,7 @@
 <section class="section" id="super">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow eyebrow--plain">Super Specialities</span>
+      <span class="eyebrow eyebrow--plain">Super Speciality Wing</span>
       <h2>Advanced Expertise for <span class="heading-accent">Complex Conditions</span></h2>
       <p>
         Our Super Speciality departments provide specialised diagnosis and treatment for complex
@@ -83,6 +83,16 @@
       </p>
     </div>
 
+    <div class="emergency-highlight">
+      <app-icon name="ambulance" [size]="32" />
+      <div>
+        <span class="eyebrow">Super Speciality Wing</span>
+        <h3>24×7 Emergency &amp; Critical Care</h3>
+        <p>Round-the-clock emergency and trauma care, with rapid assessment and specialist support when every second counts.</p>
+        <a class="btn btn--blue" [href]="'tel:+919063118255'">Call 9063118255</a>
+        <a class="link-arrow" routerLink="/specialities/emergency-care">Explore Emergency Care →</a>
+      </div>
+    </div>
     <div class="grid grid--2">
       @for (item of supers; track item.slug) {
         <article class="spec">

@@ -132,7 +132,6 @@ export const DOCTORS: Doctor[] = [
   profile('Dr. Krishna Chaithanya Bevara', 'Emergency & Critical Care', 'MBBS, MD (Anaesthesiology)', 'Consultant - Critical Care'),
 
   // Cardiology
-  profile('Dr. U. Uma Devi', 'Cardiology', 'MBBS, MD (General Medicine), Dr.NB (Cardiology)', 'Consultant - Interventional Cardiologist'),
   profile('Dr. Sudhir Chandra Sinha', 'Cardiology', 'MD, DM (Cardiology), FACC, FICA, FSCAI', 'Chief Consultant - Interventional Cardiologist'),
   profile('Dr. Ramprasad Kadiyala', 'Cardiology', 'MBBS, MD (General Medicine), DM (Cardiology)', 'Senior Consultant - Interventional Cardiologist'),
   profile('Dr. Kalyan Chakravarthy Pulivarthi', 'Cardiology', 'MBBS, MD, DM (Cardiology), FACC, FICA, FSCAI', 'Senior Consultant - Interventional Cardiologist'),

@@ -101,7 +101,9 @@
             <span><app-icon name="phone" [size]="20" /></span>
             <div>
               <strong>Call Us</strong>
-              <a [href]="site.phoneHref">{{ site.phone }}</a>
+              @for (phone of site.phones; track phone.href) {
+                <a [href]="phone.href">{{ phone.value }}</a><br />
+              }
             </div>
           </li>
           <li>

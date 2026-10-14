@@ -1,6 +1,6 @@
 import { Speciality } from '../models';
 
-export const SPECIALITIES: Speciality[] = [
+const SPECIALITY_DATA: Speciality[] = [
   {
     slug: 'general-medicine',
     name: 'General Medicine',
@@ -74,7 +74,7 @@ export const SPECIALITIES: Speciality[] = [
   {
     slug: 'emergency-care',
     name: 'Emergency Care',
-    group: 'general',
+    group: 'super',
     image: 'assets/images/service-emergency.jpg',
     icon: 'ambulance',
     blurb: '24×7 emergency and trauma services when every second counts.',
@@ -202,6 +202,8 @@ export const SPECIALITIES: Speciality[] = [
       'The Department of Interventional Radiology provides minimally invasive, image-guided procedures for the diagnosis and treatment of a range of medical conditions. Our specialists use advanced imaging techniques to deliver precise treatment with smaller incisions, reduced recovery times, and improved patient comfort.'
   }
 ];
+
+export const SPECIALITIES: Speciality[] = SPECIALITY_DATA.sort((a, b) => a.name.localeCompare(b.name, 'en'));
 
 export const GENERAL_SPECIALITIES = SPECIALITIES.filter((s) => s.group === 'general');
 export const SUPER_SPECIALITIES = SPECIALITIES.filter((s) => s.group === 'super');

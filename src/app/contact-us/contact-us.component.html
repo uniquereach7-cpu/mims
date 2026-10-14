@@ -15,7 +15,11 @@
         <article class="contact-card">
           <span class="contact-card__icon"><app-icon [name]="card.icon" [size]="26" /></span>
           <h3>{{ card.title }}</h3>
-          @if (card.href) {
+          @if (card.icon === 'phone') {
+            @for (phone of site.phones; track phone.href) {
+              <a [href]="phone.href">{{ phone.value }}</a><br />
+            }
+          } @else if (card.href) {
             <a [href]="card.href">{{ card.value }}</a>
           } @else {
             <p>{{ card.value }}</p>

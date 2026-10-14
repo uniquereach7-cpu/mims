@@ -9,10 +9,15 @@ export const SITE = {
     'Vizianagaram District',
     'Andhra Pradesh – 535 217'
   ],
-  phone: '+91 8922 244365',
-  phoneHref: 'tel:+918922244365',
-  email: 'mimssret@gmail.com',
-  emailHref: 'mailto:mimssret@gmail.com',
+  phone: '9063118255',
+  phoneHref: 'tel:+919063118255',
+  phones: [
+    { value: '9063118255', href: 'tel:+919063118255' },
+    { value: '9063118244', href: 'tel:+919063118244' },
+    { value: '08922-244666', href: 'tel:+918922244666' }
+  ],
+  email: 'contact@mimshospitals.com',
+  emailHref: 'mailto:contact@mimshospitals.com',
   opdHours: 'Monday to Saturday, 9:00 AM – 5:00 PM',
   emergencyHours: '24 Hours a Day | 7 Days a Week',
   mapUrl:
