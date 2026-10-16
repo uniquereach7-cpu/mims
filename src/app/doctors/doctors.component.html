@@ -86,6 +86,9 @@
                 @if (doctor.qualifications) {
                   <p class="doctor-card__qualifications">{{ doctor.qualifications }}</p>
                 }
+                @for (line of doctor.schedule || []; track $index) {
+                  <p class="doctor-card__schedule">{{ line }}</p>
+                }
                 <a class="doctor-card__cta" routerLink="/book-appointment">
                   Book Appointment
                   <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>

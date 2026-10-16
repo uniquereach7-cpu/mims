@@ -45,7 +45,8 @@ export class DoctorsComponent {
       list.push(doctor);
       map.set(doctor.department, list);
     }
-    return Array.from(map, ([department, doctors]) => ({ department, doctors }));
+    return Array.from(map, ([department, doctors]) => ({ department, doctors }))
+      .sort((a, b) => a.department.localeCompare(b.department, 'en'));
   });
 
   readonly whyPoints = [

@@ -12,6 +12,7 @@ export interface Doctor {
   slug: string;
   qualifications?: string;
   designation?: string;
+  schedule?: string[];
 }
 
 export type SpecialityGroup = 'general' | 'super';
@@ -45,6 +46,7 @@ export interface SpecialityBlock {
   heading: string;
   intro: string[];
   items: TitledItem[];
+  subsections?: SpecialityBlock[];
 }
 
 export interface SpecialityDetail {
@@ -58,7 +60,9 @@ export interface SpecialityDetail {
   conditions: { heading: string; intro: string[]; groups: ConditionGroup[] };
   treatments: SpecialityBlock;
   diagnostics: SpecialityBlock;
-  doctors: { heading: string; intro: string[]; names: string[] };
+  doctors: { heading: string; intro: string[]; names: string[]; profiles?: Doctor[] };
+  relatedIntro?: string[];
+  relatedHeading?: string;
   why: SpecialityBlock;
   faqs: Faq[];
 }

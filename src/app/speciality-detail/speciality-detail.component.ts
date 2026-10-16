@@ -39,7 +39,15 @@ export class SpecialityDetailComponent {
   /** Doctors listed for this department in the hospital-wide roster. */
   readonly doctors = computed(() => {
     const name = this.speciality()?.name;
-    return name ? DOCTORS.filter((d) => d.department === name) : [];
+    if (!name) return [];
+    const department = name === 'Emergency Care' ? 'Emergency & Critical Care' : name;
+    const names = new Set(this.detail()?.doctors.names ?? []);
+    const departmentDoctors = DOCTORS.filter((doctor) => doctor.department === department);
+    // Prefer the department-specific record when a doctor works in more than one department.
+    const relatedDoctors = DOCTORS.filter((doctor) => names.has(doctor.name) &&
+      !departmentDoctors.some((item) => item.slug === doctor.slug));
+    return [...departmentDoctors, ...relatedDoctors]
+      .filter((doctor, index, list) => list.findIndex((item) => item.slug === doctor.slug) === index);
   });
 
   readonly openFaq = signal<number | null>(0);

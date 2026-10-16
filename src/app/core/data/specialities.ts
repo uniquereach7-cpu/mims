@@ -1,6 +1,19 @@
 import { Speciality } from '../models';
+import { FINAL_SPECIALITY_BLURBS, FINAL_SPECIALITY_SUMMARIES } from './speciality-directory-content';
 
 const SPECIALITY_DATA: Speciality[] = [
+  {
+    slug: 'orthopaedics-joint-replacement', name: 'Orthopaedics & Joint Replacement', group: 'general',
+    icon: 'joint', image: 'assets/images/service-inpatient.jpg', blurb: '', summary: ''
+  },
+  {
+    slug: 'radiation-oncology', name: 'Radiation Oncology', group: 'super',
+    icon: 'scan', image: 'assets/images/diagnostics.jpg', blurb: '', summary: ''
+  },
+  {
+    slug: 'urology', name: 'Urology', group: 'super',
+    icon: 'kidney', image: 'assets/images/diagnostics.jpg', blurb: '', summary: ''
+  },
   {
     slug: 'general-medicine',
     name: 'General Medicine',
@@ -203,7 +216,11 @@ const SPECIALITY_DATA: Speciality[] = [
   }
 ];
 
-export const SPECIALITIES: Speciality[] = SPECIALITY_DATA.sort((a, b) => a.name.localeCompare(b.name, 'en'));
+export const SPECIALITIES: Speciality[] = SPECIALITY_DATA.map((speciality) => ({
+  ...speciality,
+  summary: FINAL_SPECIALITY_SUMMARIES[speciality.slug] || speciality.summary,
+  blurb: FINAL_SPECIALITY_BLURBS[speciality.slug] || speciality.blurb
+})).sort((a, b) => a.name.localeCompare(b.name, 'en'));
 
 export const GENERAL_SPECIALITIES = SPECIALITIES.filter((s) => s.group === 'general');
 export const SUPER_SPECIALITIES = SPECIALITIES.filter((s) => s.group === 'super');

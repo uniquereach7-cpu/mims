@@ -1,4 +1,5 @@
 import { Doctor } from '../models';
+import { FINAL_DOCTOR_UPDATES } from './speciality-directory-content';
 
 type DoctorDetails = Pick<Doctor, 'qualifications' | 'designation'>;
 
@@ -20,7 +21,7 @@ const profile = (name: string, department: string, qualifications: string, desig
   doctor(name, department, { qualifications, designation });
 
 /** Roster reconciled with Doctor Directory v8, Doctors Boards v6, and the latest speciality segregation. */
-export const DOCTORS: Doctor[] = [
+const BASE_DOCTORS: Doctor[] = [
   // General Medicine
   doctor('Dr. Yandrapati Gnana Sundara Raju', 'General Medicine'),
   doctor('Dr. Prahallada Chandra Mishra', 'General Medicine'),
@@ -158,6 +159,24 @@ export const DOCTORS: Doctor[] = [
   profile('Dr. Hemanth N. Varma D.', 'Head & Neck / Robotic Oncosurgery', 'MDS (Maxillofacial), FIHNO', 'Consultant - Head & Neck and Robotic Oncosurgeon'),
   profile('Dr. Nallana Prasad', 'Interventional Radiology', 'MBBS, DNB (Cardio Diagnosis)', 'Senior Consultant - Interventional Radiologist')
 ];
+
+const doctorKey = (item: Doctor): string =>
+  `${item.name.toLowerCase().replace(/[^a-z0-9]/g, '')}|${item.department}`;
+
+const roster = new Map(BASE_DOCTORS.map((item) => {
+  const updated = item.department === 'Orthopaedics'
+    ? { ...item, department: 'Orthopaedics & Joint Replacement' } : item;
+  return [doctorKey(updated), updated] as const;
+}));
+
+for (const update of FINAL_DOCTOR_UPDATES) {
+  const key = doctorKey(update);
+  const existing = roster.get(key);
+  roster.set(key, { ...existing, ...update });
+}
+
+export const DOCTORS: Doctor[] = Array.from(roster.values())
+  .filter((item) => !/uma\s*devi/i.test(item.name));
 
 export const DOCTOR_DEPARTMENTS: string[] = Array.from(new Set(DOCTORS.map((item) => item.department))).sort();
 

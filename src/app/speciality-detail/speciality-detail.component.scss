@@ -244,3 +244,15 @@
     gap: 24px;
   }
 }
+.procedure-block {
+  margin-top: 32px;
+  h3 { color: var(--blue); margin-bottom: 16px; }
+}
+
+.doctor-card__schedule {
+  font-size: .9rem;
+  color: #2c6285;
+  line-height: 1.6;
+}
+
+.emergency-contact { max-width: 860px; text-align: center; }

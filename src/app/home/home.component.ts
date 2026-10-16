@@ -85,7 +85,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       icon: 'ambulance',
       title: '24×7 Emergency & Critical Care',
-      text: 'Round-the-clock emergency and critical care backed by modern infrastructure.'
+      text: 'Round-the-clock emergency services, with ICU and CICU facilities.'
     },
     {
       icon: 'award',
@@ -125,7 +125,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       imagePosition: 'center 32%'
     },
     {
-      lead: 'Preventive health check‑ups,',
+      lead: 'Preventive health check-up packages,',
       accent: 'for every stage of life',
       text: 'From children and working professionals to senior citizens, with packages built around real risk profiles.',
       ctaLabel: 'View Our Health Packages',

@@ -50,3 +50,5 @@ hero-candidates/
 
 # Full-resolution cutout PNGs (source material; only the WebPs in assets/images are served)
 src/assets/cuts/
+
+/CONTENT-AUDIT.md
