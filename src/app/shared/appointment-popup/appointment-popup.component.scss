@@ -1,0 +1,54 @@
+dialog {
+  width: min(560px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid #e3ebdf;
+  border-radius: 28px;
+  background: #fff;
+  color: #1e4762;
+  box-shadow: 0 24px 80px #102f4566;
+  overflow-y: auto;
+}
+
+dialog::backdrop {
+  background: #102f4599;
+  backdrop-filter: blur(5px);
+}
+
+.appointment-popup {
+  position: relative;
+  padding: 44px 36px 28px;
+  text-align: center;
+  background: radial-gradient(ellipse at top, #edf5e6, #fff 65%);
+
+  &__close {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: #fff;
+    color: #1e4762;
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  &__icon { display: flex; justify-content: center; align-items: center; width: 72px; height: 72px; margin: 0 auto 20px; background: #fff; border-radius: 22px; }
+  &__eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  h2 { font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; margin: 16px 0; }
+  h2 span { color: #467c2d; }
+  p { color: #526675; font-size: 1rem; line-height: 1.65; }
+  &__actions { display: grid; gap: 10px; margin-top: 24px; }
+  .btn { justify-content: center; gap: 16px; min-height: 52px; }
+  &__browse { min-height: 48px; border: 1px solid #d8e2e8; border-radius: 28px; background: #fff; color: #1e4762; font: inherit; cursor: pointer; }
+  &__help { margin: 20px 0 0; font-size: .88rem !important; }
+  &__help a { color: #1e4762; font-weight: 600; text-decoration: underline; white-space: nowrap; }
+  a:focus-visible, button:focus-visible { outline: 3px solid #2c6285; outline-offset: 3px; }
+  &__close:hover, &__browse:hover { background: #edf5e6; }
+}
+
+@media (max-width: 480px) {
+  .appointment-popup { padding: 44px 22px 24px; }
+}
