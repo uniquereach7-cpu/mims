@@ -5,12 +5,14 @@ import { RouterLink } from '@angular/router';
 
 import { IconComponent } from '../shared/icon/icon.component';
 import { CtaBandComponent } from '../shared/cta-band/cta-band.component';
+import { EmergencyHighlightComponent } from '../shared/emergency-highlight/emergency-highlight.component';
 import { DIAGNOSTIC_FACILITIES, HOSPITAL_STATS, SITE } from '../core/data/site';
 import { SPECIALITIES } from '../core/data/specialities';
-import { BLOG_POSTS, TESTIMONIALS } from '../core/data/content';
+import { BLOG_POSTS } from '../core/data/content';
 import { DOCTORS } from '../core/data/doctors';
 
 interface HeroSlide {
+  emergency?: boolean;
   lead: string;
   accent: string;
   text: string;
@@ -25,7 +27,7 @@ interface HeroSlide {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, IconComponent, CtaBandComponent],
+  imports: [RouterLink, IconComponent, CtaBandComponent, EmergencyHighlightComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -37,7 +39,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   readonly site = SITE;
   readonly stats = HOSPITAL_STATS;
   readonly facilities = DIAGNOSTIC_FACILITIES;
-  readonly testimonials = TESTIMONIALS;
   readonly posts = BLOG_POSTS.slice(0, 4);
 
   readonly featuredSpecialities = SPECIALITIES;
@@ -115,6 +116,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       imagePosition: 'center 32%'
     },
     {
+      emergency: true,
       lead: 'Emergency Care,',
       accent: 'When Every Moment Matters',
       text: '24×7 emergency medicine, trauma care, and critical care teams ready around the clock.',
@@ -141,7 +143,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.zone.runOutsideAngular(() => {
         this.timer = setInterval(() => {
           this.zone.run(() => this.next());
-        }, 6000);
+        }, 7000);
       });
     }
   }

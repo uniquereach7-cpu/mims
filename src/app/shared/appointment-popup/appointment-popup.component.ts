@@ -1,12 +1,11 @@
 import { afterNextRender, Component, ElementRef, OnDestroy, viewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SITE } from '../../core/data/site';
-import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'app-appointment-popup',
   standalone: true,
-  imports: [RouterLink, IconComponent],
+  imports: [RouterLink],
   templateUrl: './appointment-popup.component.html',
   styleUrl: './appointment-popup.component.scss'
 })

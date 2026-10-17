@@ -85,16 +85,6 @@
       </p>
     </div>
 
-    <div class="emergency-highlight">
-      <app-icon name="ambulance" [size]="32" />
-      <div>
-        <span class="eyebrow">Super Speciality Wing</span>
-        <h3>24×7 Emergency &amp; Critical Care</h3>
-        <p>Round-the-clock emergency and trauma care, with rapid assessment and specialist support when every second counts.</p>
-        <a class="btn btn--blue" [href]="'tel:+919063118255'">Call 9063118255</a>
-        <a class="link-arrow" routerLink="/specialities/emergency-care">Explore Emergency Care →</a>
-      </div>
-    </div>
     <div class="grid grid--2">
       @for (item of supers; track item.slug) {
         <article class="spec">
@@ -109,6 +99,21 @@
           </div>
         </article>
       }
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface" aria-labelledby="emergency-services-heading">
+  <div class="container">
+    <div class="emergency-highlight">
+      <app-icon name="ambulance" [size]="32" />
+      <div>
+        <span class="eyebrow">Emergency Services</span>
+        <h2 id="emergency-services-heading">24×7 Emergency &amp; Critical Care</h2>
+        <p>Round-the-clock emergency and trauma care, with rapid assessment and specialist support when every second counts.</p>
+        <a class="btn btn--blue" href="tel:+919063118255">Call 9063118255</a>
+        <a class="link-arrow" routerLink="/specialities/emergency-care">Explore Emergency Care →</a>
+      </div>
     </div>
   </div>
 </section>

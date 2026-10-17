@@ -1,0 +1,50 @@
+<section class="emergency-section" aria-labelledby="home-emergency-title">
+  <div class="container">
+    <div class="emergency-module">
+      <div class="emergency-module__copy">
+        <span class="emergency-module__label"><span aria-hidden="true">+</span> Available 24 hours · 7 days a week</span>
+        <h2 id="home-emergency-title"><span>24×7 Emergency</span><br />&amp; Critical Care</h2>
+        <p class="emergency-module__intro">Round-the-clock emergency services, supported by Critical Care, ICU and CICU facilities.</p>
+
+        <ul class="emergency-module__services">
+          @for (service of services; track service.title) {
+            <li>
+              <span class="emergency-module__icon"><app-icon [name]="service.icon" [size]="24" /></span>
+              <div>
+                <h3>{{ service.title }}</h3>
+                <p>{{ service.text }}</p>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="emergency-module__visual">
+        <img class="emergency-module__photo" src="assets/images/hero-3-emergency-care.jpg"
+          alt="Medical team attending to a patient in an emergency care setting"
+          width="1862" height="845" loading="lazy" />
+        <div class="emergency-module__availability">
+          <svg class="emergency-module__clock" viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="34" />
+            <path d="M40 12v5m28 23h-5M40 68v-5M12 40h5M20 20l4 4m36-4-4 4m4 36-4-4m-36 4 4-4M40 24v17l12 7" />
+          </svg>
+          <div><strong>24/7</strong><span>Emergency Services</span></div>
+        </div>
+      </div>
+
+      <div class="emergency-module__contact">
+        <div>
+          <span class="emergency-module__contact-label">Call for emergency assistance</span>
+          <a class="emergency-module__primary-phone" [href]="site.phoneHref"><app-icon name="phone" [size]="22" />{{ site.phone }}</a>
+          <div class="emergency-module__other-phones">
+            <span>Also reach us:</span>
+            @for (phone of site.phones.slice(1); track phone.href) {
+              <a [href]="phone.href">{{ phone.value }}</a>
+            }
+          </div>
+        </div>
+        <a class="btn btn--blue" routerLink="/specialities/emergency-care">Explore Emergency Care <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>

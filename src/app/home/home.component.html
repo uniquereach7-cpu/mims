@@ -1,5 +1,5 @@
 <!-- ============================ HERO SLIDER ============================ -->
-<section class="hero" aria-roledescription="carousel" aria-label="MIMS healthcare highlights">
+<section class="hero" [class.hero--emergency]="slides[active()].emergency" aria-roledescription="carousel" aria-label="MIMS healthcare highlights">
   @for (slide of slides; track $index; let i = $index) {
     <div
       class="hero__bg"
@@ -12,10 +12,14 @@
   }
   <div class="hero__veil" aria-hidden="true"></div>
 
+  @if (slides[active()].emergency) {
+    <app-emergency-highlight />
+  }
+
   <div class="container hero__inner">
     <div class="hero__text">
       @for (slide of slides; track $index; let i = $index) {
-        <div class="hero__slide" [class.is-active]="active() === i" [attr.aria-hidden]="active() !== i">
+        <div class="hero__slide" [class.is-active]="active() === i" [attr.aria-hidden]="active() !== i" [attr.inert]="active() !== i ? '' : null">
           <span class="hero__rule"></span>
           <h1>
             {{ slide.lead }} <span class="heading-accent">{{ slide.accent }}</span>
@@ -198,21 +202,6 @@
   </div>
 </section>
 
-<section class="section emergency-feature" aria-labelledby="emergency-heading">
-  <div class="container emergency-feature__inner">
-    <div>
-      <span class="eyebrow">Super Speciality Wing</span>
-      <h2 id="emergency-heading">24×7 Emergency &amp; Critical Care</h2>
-      <p>MIMS Hospital provides 24×7 emergency services for sudden illnesses, injuries and urgent
-        medical conditions, with ICU and CICU facilities for patients requiring critical care.</p>
-    </div>
-    <div class="emergency-feature__actions">
-      <a class="btn btn--white" routerLink="/specialities/emergency-care">Explore Emergency Care <span aria-hidden="true">↗</span></a>
-      <a [href]="site.phoneHref">Call {{ site.phone }}</a>
-    </div>
-  </div>
-</section>
-
 <section class="section section--tight">
   <div class="container">
     <figure class="feature-image">
@@ -283,27 +272,6 @@
           <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
         </span>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ TESTIMONIALS ============================ -->
-<section class="testimonials">
-  <div class="container">
-    <span class="eyebrow eyebrow--plain testimonials__eyebrow">Patient Testimonials</span>
-    <h2>What Our Patients Say: <strong>Trusted by Families Across Vizianagaram</strong></h2>
-
-    <div class="testimonials__row">
-      @for (item of testimonials; track item.name) {
-        <blockquote class="testimonial">
-          <h3>{{ item.name }}</h3>
-          <p>“{{ item.quote }}”</p>
-          <footer>
-            <span class="testimonial__mark" aria-hidden="true">”</span>
-            <cite>{{ item.role }} · {{ item.place }}</cite>
-          </footer>
-        </blockquote>
-      }
     </div>
   </div>
 </section>

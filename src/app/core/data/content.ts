@@ -6,12 +6,6 @@ export interface BlogPost {
   image: string;
 }
 
-export interface Testimonial {
-  quote: string;
-  name: string;
-  place: string;
-  role: string;
-}
 
 export const BLOG_CATEGORIES = [
   'General Health',
@@ -76,29 +70,6 @@ export const BLOG_POSTS: BlogPost[] = [
   }
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    quote:
-      'The care I received at MIMS Hospital after my surgery was exceptional. The doctors explained every step clearly, and the nursing staff supported me throughout my recovery.',
-    name: 'Mr. V. Ramesh Kumar',
-    place: 'Vizianagaram',
-    role: 'General Surgery Patient'
-  },
-  {
-    quote:
-      'The paediatric team was incredibly caring and attentive. They made both our child and our family feel comfortable and reassured during treatment.',
-    name: 'Mrs. S. Lakshmi Devi',
-    place: 'Nellimarla',
-    role: 'Parent of a Paediatric Patient'
-  },
-  {
-    quote:
-      'Through the Aarogyasri Scheme, I received quality treatment and excellent support. The entire experience at MIMS Hospital exceeded my expectations.',
-    name: 'Mr. K. Appala Naidu',
-    place: 'Vizianagaram',
-    role: 'Aarogyasri Beneficiary'
-  }
-];
 
 export const GOVERNMENT_SCHEMES = [
   'Dr. YSR Aarogyasri Scheme',

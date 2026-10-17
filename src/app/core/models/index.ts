@@ -15,7 +15,7 @@ export interface Doctor {
   schedule?: string[];
 }
 
-export type SpecialityGroup = 'general' | 'super';
+export type SpecialityGroup = 'general' | 'super' | 'emergency';
 
 export interface Speciality {
   slug: string;

@@ -87,7 +87,7 @@ const SPECIALITY_DATA: Speciality[] = [
   {
     slug: 'emergency-care',
     name: 'Emergency Care',
-    group: 'super',
+    group: 'emergency',
     image: 'assets/images/service-emergency.jpg',
     icon: 'ambulance',
     blurb: '24×7 emergency and trauma services when every second counts.',
@@ -216,15 +216,17 @@ const SPECIALITY_DATA: Speciality[] = [
   }
 ];
 
-export const SPECIALITIES: Speciality[] = SPECIALITY_DATA.map((speciality) => ({
+const DEPARTMENTS: Speciality[] = SPECIALITY_DATA.map((speciality) => ({
   ...speciality,
   summary: FINAL_SPECIALITY_SUMMARIES[speciality.slug] || speciality.summary,
   blurb: FINAL_SPECIALITY_BLURBS[speciality.slug] || speciality.blurb
 })).sort((a, b) => a.name.localeCompare(b.name, 'en'));
 
+export const EMERGENCY_CARE = DEPARTMENTS.find((s) => s.group === 'emergency')!;
+export const SPECIALITIES = DEPARTMENTS.filter((s) => s.group !== 'emergency');
 export const GENERAL_SPECIALITIES = SPECIALITIES.filter((s) => s.group === 'general');
 export const SUPER_SPECIALITIES = SPECIALITIES.filter((s) => s.group === 'super');
 
 export function findSpeciality(slug: string): Speciality | undefined {
-  return SPECIALITIES.find((s) => s.slug === slug);
+  return DEPARTMENTS.find((s) => s.slug === slug);
 }

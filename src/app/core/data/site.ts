@@ -27,6 +27,7 @@ export const SITE = {
 export const MAIN_NAV: NavLink[] = [
   { label: 'About Us', path: '/about-us' },
   { label: 'Our Specialities', path: '/specialities', mega: true },
+  { label: 'Emergency Care', path: '/specialities/emergency-care' },
   { label: 'Our Doctors', path: '/doctors' },
   {
     label: 'Resources',
@@ -51,6 +52,7 @@ export const FOOTER_LINKS: { title: string; links: NavLink[] }[] = [
       { label: 'About Us', path: '/about-us' },
       { label: 'Our Doctors', path: '/doctors' },
       { label: 'Our Specialities', path: '/specialities' },
+      { label: 'Emergency Care', path: '/specialities/emergency-care' },
       { label: 'Health Check-ups', path: '/health-checkup' },
       { label: 'Infrastructure', path: '/infrastructure' }
     ]

@@ -1,15 +1,21 @@
-<dialog #dialog aria-labelledby="appointment-popup-title" aria-describedby="appointment-popup-description"
+<dialog #dialog aria-labelledby="appointment-popup-title"
   (cancel)="cancel($event)" (click)="closeOnBackdrop($event)">
   <div class="appointment-popup">
     <button class="appointment-popup__close" type="button" aria-label="Close appointment invitation" (click)="close()">×</button>
-    <span class="appointment-popup__icon"><app-icon name="stethoscope" [size]="32" /></span>
-    <span class="appointment-popup__eyebrow">MIMS Hospital · Here for you</span>
+    <img class="appointment-popup__logo" src="assets/images/logo.png" alt="MIMS Hospital" width="220" height="80" />
     <h2 id="appointment-popup-title">Your health.<br /><span>Our priority.</span></h2>
-    <p id="appointment-popup-description">Book an appointment with our specialists. Our team will help you find the right care and confirm availability.</p>
     <div class="appointment-popup__actions">
       <a class="btn btn--blue" routerLink="/book-appointment" (click)="close()">Book an Appointment <span aria-hidden="true">↗</span></a>
-      <button class="appointment-popup__browse" type="button" (click)="close()">Continue browsing</button>
     </div>
-    <p class="appointment-popup__help">Prefer to call? <a [href]="site.phoneHref">{{ site.phone }}</a></p>
+    <div class="appointment-popup__help">
+      <p>Call</p>
+      <div class="appointment-popup__phones">
+        @for (phone of site.phones; track phone.href) {
+          <a [href]="phone.href">{{ phone.value }}</a>
+        }
+      </div>
+      <p>or email <a [href]="site.emailHref">{{ site.email }}</a></p>
+    </div>
+    <button class="appointment-popup__browse" type="button" (click)="close()">Continue browsing</button>
   </div>
 </dialog>

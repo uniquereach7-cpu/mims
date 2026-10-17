@@ -35,15 +35,16 @@ dialog::backdrop {
     cursor: pointer;
   }
 
-  &__icon { display: flex; justify-content: center; align-items: center; width: 72px; height: 72px; margin: 0 auto 20px; background: #fff; border-radius: 22px; }
-  &__eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  &__logo { display: block; width: min(220px, 75%); height: auto; margin: 0 auto 24px; }
   h2 { font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; margin: 16px 0; }
   h2 span { color: #467c2d; }
   p { color: #526675; font-size: 1rem; line-height: 1.65; }
   &__actions { display: grid; gap: 10px; margin-top: 24px; }
   .btn { justify-content: center; gap: 16px; min-height: 52px; }
-  &__browse { min-height: 48px; border: 1px solid #d8e2e8; border-radius: 28px; background: #fff; color: #1e4762; font: inherit; cursor: pointer; }
-  &__help { margin: 20px 0 0; font-size: .88rem !important; }
+  &__browse { width: 100%; margin-top: 20px; min-height: 48px; border: 1px solid #d8e2e8; border-radius: 28px; background: #fff; color: #1e4762; font: inherit; cursor: pointer; }
+  &__help { margin-top: 20px; }
+  &__help p { margin: 8px 0; font-size: .88rem; }
+  &__phones { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; font-size: .88rem; }
   &__help a { color: #1e4762; font-weight: 600; text-decoration: underline; white-space: nowrap; }
   a:focus-visible, button:focus-visible { outline: 3px solid #2c6285; outline-offset: 3px; }
   &__close:hover, &__browse:hover { background: #edf5e6; }
